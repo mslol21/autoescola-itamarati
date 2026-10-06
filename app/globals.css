@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Bricolage Grotesque', 'DM Sans', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    color: #1b2333;
+    background-color: #ffffff;
+  }
+
+  /* Accessibility: Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* High contrast accessible focus outlines */
+  *:focus-visible {
+    outline: 3px solid #f5c21b;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px #0d1117;
+    border-radius: 4px;
+  }
+
+  body {
+    overflow-x: hidden;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
+@layer components {
+  /* Yellow highlighter behind a word — mirrors the brand posters */
+  .marker {
+    background: linear-gradient(transparent 58%, #f5c21b 58%, #f5c21b 92%, transparent 92%);
+    padding: 0 0.08em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .kicker {
+    @apply inline-flex items-center gap-2 font-display text-xs font-extrabold uppercase tracking-[0.18em];
+  }
+
+  .btn-yellow {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent-500 px-7 py-4 font-bold text-ink border-2 border-ink transition-transform duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-glow active:translate-x-0 active:translate-y-0 active:shadow-none;
+  }
+
+  .btn-ink {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-4 font-bold text-white border-2 border-ink transition-colors hover:bg-brand-800;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-transparent px-7 py-4 font-bold text-ink border-2 border-ink transition-colors hover:bg-ink hover:text-white;
+  }
+}
+
+/* Legacy utilities kept for inner pages, restyled to the new identity */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.glass-nav-dark {
+  background: rgba(13, 17, 23, 0.96);
+}
+
+.gradient-text-brand {
+  color: #2b4579;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(transparent 58%, #f5c21b 58%, #f5c21b 92%, transparent 92%);
+  color: inherit;
+  padding: 0 0.08em;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f2ea;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b4579;
+  border-radius: 6px;
+  border: 2px solid #f5f2ea;
+}
