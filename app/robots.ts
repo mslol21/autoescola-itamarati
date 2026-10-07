@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin', '/admin/*', '/api/admin/*'],
+        disallow: ['/admin', '/admin/*', '/api/*', '/api/admin/*'],
       },
     ],
     sitemap: 'https://autoescolaitamarati.com.br/sitemap.xml',

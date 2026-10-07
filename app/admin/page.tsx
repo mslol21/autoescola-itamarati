@@ -455,9 +455,10 @@ export default function AdminPage() {
                 <input
                   type="text"
                   required
+                  autoComplete="username"
                   value={usernameInput}
                   onChange={(e) => setUsernameInput(e.target.value)}
-                  placeholder="admin"
+                  placeholder="Seu usuário de acesso"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-accent-500"
                 />
                 <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -472,22 +473,25 @@ export default function AdminPage() {
                 <input
                   type="password"
                   required
+                  autoComplete="current-password"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
-                  placeholder="••••••••••••"
+                  placeholder="Sua senha segura"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-accent-500"
                 />
                 <Key className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               </div>
-              <p className="text-[11px] text-slate-400 mt-1">
-                Credencial padrão inicial: <strong>admin</strong> / <strong>itamarati2026</strong>
-              </p>
+            </div>
+
+            <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 text-[11px] text-slate-500">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Ambiente administrativo seguro e monitorado.</span>
             </div>
 
             <button
               type="submit"
               disabled={loginLoading}
-              className="w-full py-3.5 px-4 rounded-xl font-bold text-sm bg-accent-500 text-ink hover:bg-accent-400 shadow-md transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+              className="w-full py-3.5 px-4 rounded-xl font-bold text-sm bg-accent-500 text-ink hover:bg-accent-400 shadow-md transition-all disabled:opacity-50 flex items-center justify-center gap-2 cursor-pointer"
             >
               {loginLoading ? (
                 <>
