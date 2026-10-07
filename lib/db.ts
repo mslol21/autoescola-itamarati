@@ -884,6 +884,24 @@ function saveDatabase(data: DatabaseSchema): boolean {
   }
 }
 
+import {
+  syncHeroToSupabase,
+  syncSettingsToSupabase,
+  syncServiceToSupabase,
+  deleteServiceFromSupabase,
+  syncCourseToSupabase,
+  deleteCourseFromSupabase,
+  syncGalleryToSupabase,
+  deleteGalleryFromSupabase,
+  syncNewsToSupabase,
+  deleteNewsFromSupabase,
+  syncTestimonialToSupabase,
+  deleteTestimonialFromSupabase,
+  syncFaqToSupabase,
+  deleteFaqFromSupabase,
+  syncAdminPasswordToSupabase,
+} from './supabase-sync';
+
 export const db = {
   // HERO
   getHeroConfig: (): HeroConfig => {
@@ -893,6 +911,7 @@ export const db = {
     const current = loadDatabase();
     current.hero = { ...current.hero, ...config };
     saveDatabase(current);
+    syncHeroToSupabase(current.hero);
     return current.hero;
   },
 
@@ -904,6 +923,7 @@ export const db = {
     const current = loadDatabase();
     current.settings = { ...current.settings, ...settings };
     saveDatabase(current);
+    syncSettingsToSupabase(current.settings);
     return current.settings;
   },
 
@@ -924,11 +944,13 @@ export const db = {
       current.services.push(service);
     }
     saveDatabase(current);
+    syncServiceToSupabase(service);
     return service;
   },
   deleteService: (id: string): boolean => {
     const current = loadDatabase();
     current.services = current.services.filter((s) => s.id !== id);
+    deleteServiceFromSupabase(id);
     return saveDatabase(current);
   },
 
@@ -949,11 +971,13 @@ export const db = {
       current.courses.push(course);
     }
     saveDatabase(current);
+    syncCourseToSupabase(course);
     return course;
   },
   deleteCourse: (id: string): boolean => {
     const current = loadDatabase();
     current.courses = current.courses.filter((c) => c.id !== id);
+    deleteCourseFromSupabase(id);
     return saveDatabase(current);
   },
 
@@ -985,11 +1009,13 @@ export const db = {
       current.gallery.push(item);
     }
     saveDatabase(current);
+    syncGalleryToSupabase(item);
     return item;
   },
   deleteGalleryItem: (id: string): boolean => {
     const current = loadDatabase();
     current.gallery = current.gallery.filter((g) => g.id !== id);
+    deleteGalleryFromSupabase(id);
     return saveDatabase(current);
   },
 
@@ -1035,11 +1061,13 @@ export const db = {
       current.news.push(article);
     }
     saveDatabase(current);
+    syncNewsToSupabase(article);
     return article;
   },
   deleteNewsArticle: (id: string): boolean => {
     const current = loadDatabase();
     current.news = current.news.filter((n) => n.id !== id);
+    deleteNewsFromSupabase(id);
     return saveDatabase(current);
   },
 
@@ -1057,11 +1085,13 @@ export const db = {
       current.testimonials.push(testimonial);
     }
     saveDatabase(current);
+    syncTestimonialToSupabase(testimonial);
     return testimonial;
   },
   deleteTestimonial: (id: string): boolean => {
     const current = loadDatabase();
     current.testimonials = current.testimonials.filter((t) => t.id !== id);
+    deleteTestimonialFromSupabase(id);
     return saveDatabase(current);
   },
 
@@ -1080,11 +1110,13 @@ export const db = {
       current.faqs.push(faq);
     }
     saveDatabase(current);
+    syncFaqToSupabase(faq);
     return faq;
   },
   deleteFaq: (id: string): boolean => {
     const current = loadDatabase();
     current.faqs = current.faqs.filter((f) => f.id !== id);
+    deleteFaqFromSupabase(id);
     return saveDatabase(current);
   },
 
@@ -1096,6 +1128,7 @@ export const db = {
   changeAdminPassword: (newPassword: string): boolean => {
     const current = loadDatabase();
     current.adminCredentials.passwordHash = newPassword;
+    syncAdminPasswordToSupabase(newPassword);
     return saveDatabase(current);
   },
 };

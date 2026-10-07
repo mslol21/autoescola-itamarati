@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { saveLeadToSupabase } from '@/lib/supabase-sync';
 
 export async function POST(request: Request) {
   try {
@@ -12,9 +13,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // In a production server, this could dispatch an email or trigger a webhook.
-    // For this self-contained platform, we record and validate the lead.
-    console.log(`[NOVO CONTATO RECEBIDO] Nome: ${name} | Tel: ${phone} | E-mail: ${email} | Interesse: ${service} | Msg: ${message}`);
+    // Persist lead directly into Supabase contact_leads table
+    await saveLeadToSupabase({ name, phone, email, service, message });
+    console.log(`[NOVO CONTATO RECEBIDO] Nome: ${name} | Tel: ${phone} | E-mail: ${email} | Interesse: ${service}`);
 
     return NextResponse.json({
       success: true,
