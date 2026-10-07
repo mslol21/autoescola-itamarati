@@ -27,11 +27,11 @@ function getClientIp(request: Request): string {
 
 function cleanExpiredAttempts() {
   const now = Date.now();
-  for (const [ip, record] of loginAttempts.entries()) {
+  loginAttempts.forEach((record, ip) => {
     if (now - record.lastAttempt > LOCKOUT_PERIOD_MS) {
       loginAttempts.delete(ip);
     }
-  }
+  });
 }
 
 export async function POST(request: Request) {
