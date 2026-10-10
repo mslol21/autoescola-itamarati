@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import { db } from '@/lib/db';
 import ContactForm from '@/components/ContactForm';
@@ -12,8 +13,8 @@ export const metadata = {
 
 export const revalidate = 0;
 
-export default function ContatoPage() {
-  const settings = db.getSettings();
+export default async function ContatoPage() {
+  const settings = await db.getSettings();
 
   const waUrl = `https://api.whatsapp.com/send?phone=${settings.whatsappClean}&text=${encodeURIComponent(
     'Olá! Vim pela página de contato do site e gostaria de falar com a equipe de atendimento da Itamarati.'

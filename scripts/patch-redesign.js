@@ -4,7 +4,7 @@ const path = require('path');
 const root = path.join(__dirname, '..');
 const rd = (f) => fs.readFileSync(path.join(root, f), 'utf8');
 const wr = (f, s) => fs.writeFileSync(path.join(root, f), s);
-const I = (n) => `/images/insta/insta-0${n}.jpg`;
+const I = (n) => `/api/media/insta-0${n}.jpg`;
 
 // ---- layout: fonts + OG image ----
 let s = rd('app/layout.tsx');

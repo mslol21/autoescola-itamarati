@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import { db } from '@/lib/db';
 import GalleryLightbox from '@/components/GalleryLightbox';
@@ -11,9 +12,9 @@ export const metadata = {
 
 export const revalidate = 0;
 
-export default function GaleriaPage() {
+export default async function GaleriaPage() {
   // Only photos with authorized image use are shown in the public gallery!
-  const items = db.getGalleryItems({ onlyAuthorized: true });
+  const items = await db.getGalleryItems({ onlyAuthorized: true });
 
   return (
     <div className="py-12 sm:py-16 space-y-12">

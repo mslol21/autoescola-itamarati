@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Supabase CLI state and legacy private uploads
+/supabase/.temp/
+/data/uploads/

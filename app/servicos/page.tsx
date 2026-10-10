@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import Link from 'next/link';
 import { db } from '@/lib/db';
@@ -21,9 +22,9 @@ export const metadata = {
     'Primeira CNH (categorias A, B e AB), adição de categoria, renovação sem burocracia, reciclagem de condutor suspenso e habilitação humanizada para todas as idades.',
 };
 
-export default function ServicosPage() {
-  const services = db.getServices(true);
-  const settings = db.getSettings();
+export default async function ServicosPage() {
+  const services = await db.getServices(true);
+  const settings = await db.getSettings();
 
   return (
     <div className="py-12 sm:py-16 space-y-16">

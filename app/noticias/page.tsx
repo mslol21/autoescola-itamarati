@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import Link from 'next/link';
 import { db } from '@/lib/db';
@@ -11,21 +12,21 @@ export const metadata = {
 
 export const revalidate = 0;
 
-export default function NoticiasPage({
+export default async function NoticiasPage({
   searchParams,
 }: {
-  searchParams: { q?: string; category?: string };
+  searchParams: Promise<{ q?: string; category?: string }>;
 }) {
-  const search = searchParams?.q;
-  const category = searchParams?.category;
+  const search = (await searchParams)?.q;
+  const category = (await searchParams)?.category;
 
-  const articles = db.getNewsArticles({
+  const articles = await db.getNewsArticles({
     onlyPublished: true,
     search,
     category,
   });
 
-  const allArticles = db.getNewsArticles({ onlyPublished: true });
+  const allArticles = await db.getNewsArticles({ onlyPublished: true });
   const categories = ['todas', ...Array.from(new Set(allArticles.map((a) => a.category)))];
 
   return (

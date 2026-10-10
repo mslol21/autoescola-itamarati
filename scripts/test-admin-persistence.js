@@ -5,6 +5,7 @@ function postJson(urlPath, data, cookie) {
     const payload = JSON.stringify(data);
     const headers = {
       'Content-Type': 'application/json',
+      'Origin': 'http://localhost:3000',
       'Content-Length': Buffer.byteLength(payload),
     };
     if (cookie) headers['Cookie'] = cookie;
@@ -61,7 +62,7 @@ async function testAdminFlow() {
   // 1. Login
   const loginRes = await postJson('/api/auth/login', {
     username: 'admin',
-    password: 'itamarati2026',
+    password: process.env.TEST_ADMIN_PASSWORD,
   });
   console.log(`[1] Login status: ${loginRes.statusCode} - ${JSON.stringify(loginRes.body)}`);
 

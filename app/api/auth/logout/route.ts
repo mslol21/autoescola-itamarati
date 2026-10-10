@@ -1,21 +1,9 @@
-import { NextResponse } from 'next/server';
-import { AUTH_COOKIE_NAME } from '@/lib/auth';
-
-export async function POST() {
-  const response = NextResponse.json({
-    success: true,
-    message: 'Desconectado com sucesso.',
-  });
-
-  response.cookies.set({
-    name: AUTH_COOKIE_NAME,
-    value: '',
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    path: '/',
-    maxAge: 0,
-  });
-
+import { AUTH_COOKIE_NAME, cookieOptions, deleteCurrentSession } from '@/lib/auth';
+import { assertSameOrigin, handle, json } from '@/lib/http';
+export async function POST(request: Request) { return handle(async () => {
+  assertSameOrigin(request);
+  await deleteCurrentSession();
+  const response = json({ success: true, message: 'Desconectado com sucesso.' });
+  response.cookies.set(AUTH_COOKIE_NAME, '', { ...cookieOptions, maxAge: 0 });
   return response;
-}
+}); }

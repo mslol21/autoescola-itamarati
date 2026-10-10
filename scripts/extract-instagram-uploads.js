@@ -1,11 +1,11 @@
 // Extracts og:image / description from the Instagram HTML pages uploaded by the user
-// and downloads each real photo into public/images/insta/.
+// and downloads each real photo into data/legacy-media/.
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
 const dir = process.argv[2];
-const outDir = path.join(__dirname, '../public/images/insta');
+const outDir = path.join(__dirname, '../data/legacy-media');
 fs.mkdirSync(outDir, { recursive: true });
 
 function decode(s) {

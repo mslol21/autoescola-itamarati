@@ -1,57 +1,22 @@
-import { NextResponse } from 'next/server';
+import { randomUUID } from 'node:crypto';
 import { db } from '@/lib/db';
-import { isUserAdmin } from '@/lib/auth';
-import { Testimonial } from '@/lib/types';
-
-export async function GET() {
-  const testimonials = db.getTestimonials(false);
-  return NextResponse.json(testimonials);
-}
-
-export async function POST(request: Request) {
-  const isAdmin = await isUserAdmin();
-  if (!isAdmin) {
-    return NextResponse.json({ error: 'Não autorizado.' }, { status: 401 });
-  }
-
-  try {
-    const body = (await request.json()) as Testimonial;
-    if (!body.author || !body.text) {
-      return NextResponse.json(
-        { error: 'Nome do autor e depoimento são obrigatórios.' },
-        { status: 400 }
-      );
-    }
-
-    if (!body.id) {
-      body.id = `test-${Date.now()}`;
-    }
-
-    const saved = db.saveTestimonial(body);
-    return NextResponse.json({ success: true, testimonial: saved });
-  } catch (error) {
-    console.error('Error saving testimonial:', error);
-    return NextResponse.json({ error: 'Erro ao salvar depoimento.' }, { status: 500 });
-  }
-}
-
-export async function DELETE(request: Request) {
-  const isAdmin = await isUserAdmin();
-  if (!isAdmin) {
-    return NextResponse.json({ error: 'Não autorizado.' }, { status: 401 });
-  }
-
-  try {
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get('id');
-    if (!id) {
-      return NextResponse.json({ error: 'ID é obrigatório.' }, { status: 400 });
-    }
-
-    const deleted = db.deleteTestimonial(id);
-    return NextResponse.json({ success: deleted });
-  } catch (error) {
-    console.error('Error deleting testimonial:', error);
-    return NextResponse.json({ error: 'Erro ao excluir depoimento.' }, { status: 500 });
-  }
-}
+import { handle, json, readJson, requireAdmin } from '@/lib/http';
+import { testimonialSchema, idSchema } from '@/lib/validation';
+export const dynamic = 'force-dynamic';
+export async function GET() { return handle(async () => {
+  await requireAdmin();
+  return json(await db.getTestimonials(false));
+}); }
+export async function POST(request: Request) { return handle(async () => {
+  await requireAdmin(request);
+  const body = testimonialSchema.parse(await readJson(request));
+  const item = { ...body, id: body.id || randomUUID() };
+  const saved = await db.saveTestimonial(item);
+  return json({ success: true, testimonial: saved });
+}); }
+export async function DELETE(request: Request) { return handle(async () => {
+  await requireAdmin(request);
+  const id = idSchema.parse(new URL(request.url).searchParams.get('id'));
+  const deleted = await db.deleteTestimonial(id);
+  return deleted ? json({ success: true }) : json({ error: 'Registro não encontrado.' },404);
+}); }

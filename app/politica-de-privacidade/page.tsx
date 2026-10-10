@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import Link from 'next/link';
 import { db } from '@/lib/db';
@@ -9,8 +10,8 @@ export const metadata = {
     'Política de privacidade e proteção de dados da Autoescola Itamarati em conformidade com a LGPD (Lei nº 13.709/2018).',
 };
 
-export default function PoliticaPrivacidadePage() {
-  const settings = db.getSettings();
+export default async function PoliticaPrivacidadePage() {
+  const settings = await db.getSettings();
 
   return (
     <div className="py-12 sm:py-16">

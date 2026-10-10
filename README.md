@@ -35,11 +35,11 @@ Desenvolvido sob o conceito criativo: **“Sua próxima conquista começa aqui�
 
 ## 🔐 2. Painel Administrativo Completo (`/admin`)
 
-O painel administrativo está localizado na rota `/admin` e opera com autenticação real e persistência atômica no servidor.
+O painel administrativo está localizado na rota `/admin` e opera com autenticação real e persistência no Supabase.
 
 ### Credenciais Iniciais
 - **Usuário:** `admin`
-- **Senha:** `itamarati2026`
+- **Senha:** `[senha definida no ambiente]`
 *(A senha pode ser alterada diretamente na aba de Configurações do painel).*
 
 ### Funcionalidades do Painel:
@@ -51,7 +51,7 @@ O painel administrativo está localizado na rota `/admin` e opera com autentica�
    - **Controle de Autorização de Uso de Imagem (LGPD):** Fotos marcadas como não autorizadas são **automaticamente bloqueadas do site público** e permanecem visíveis apenas no painel administrativo;
    - Definição de fotos que aparecem no mosaico da Home.
 5. **CMS de Notícias & Blog:**
-   - Criação e edição com sanitização contra scripts maliciosos;
+   - Criação e edição com validação; conteúdo renderizado como texto pelo React, sem executar HTML;
    - Status (*Rascunho*, *Publicado*, *Arquivado*); rascunhos nunca aparecem publicamente;
    - Modal de pré-visualização antes da publicação;
    - Inserção de link da fonte externa governamental/oficial;
@@ -65,12 +65,12 @@ O painel administrativo está localizado na rota `/admin` e opera com autentica�
 
 ## 🛠️ 3. Tecnologias Utilizadas
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 15.5.27 (App Router)
 - **Linguagem:** TypeScript
 - **Estilização:** Tailwind CSS (paleta personalizada Azul Itamarati + Âmbar Vibrante)
 - **Ícones:** Lucide React
-- **Armazenamento:** Motor de banco de dados com gravação atômica (`data/db.json`), garantindo persistência sem depender de chaves de nuvem externas indisponíveis
-- **Uploads:** API nativa com validação de MIME types (JPG, PNG, WebP) e limite de tamanho
+- **Armazenamento:** Supabase como fonte de verdade. `data/db.json` serve apenas como conteúdo inicial e prévia local somente de leitura
+- **Uploads:** Supabase Storage privado, validação e recodificação de imagens, remoção de EXIF/GPS e autorização de leitura por imagem
 
 ---
 
@@ -91,4 +91,30 @@ npm run dev
 ### Para Acessar a Área da Equipe
 Acesse: [http://localhost:3000/admin](http://localhost:3000/admin)
 - Usuário: `admin`
-- Senha: `itamarati2026`
+- Senha: `[senha definida no ambiente]`
+
+
+## Segurança e configuração do ambiente
+
+Leia [SECURITY_AUDIT.md](SECURITY_AUDIT.md) antes de publicar esta atualização.
+As variáveis de servidor necessárias estão em `.env.example`. Sem configuração,
+o site permite somente uma prévia com conteúdo inicial; autenticação e gravação
+não retornam sucesso fictício. Nunca use chaves de produção em testes locais.
+
+1. Substitua as credenciais expostas no histórico do repositório.
+2. Faça backup do banco e dos uploads atuais.
+3. Configure `DATABASE_URL` com certificado válido e uma senha administrativa nova
+   em `ADMIN_BOOTSTRAP_PASSWORD` (12 a 128 caracteres).
+4. Revise a migração em `supabase/migrations/`. Execute
+   `node --env-file=.env.local scripts/migrate-supabase.js` contra o projeto correto.
+   O script usa uma transação, preserva conteúdo existente e não redefine senhas
+   já protegidas por scrypt. Não reutilize a senha antiga exposta.
+5. Configure `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `APP_ORIGIN` e
+   `RATE_LIMIT_SECRET` no servidor. Nenhuma delas deve ter prefixo `NEXT_PUBLIC_`.
+6. Execute `npm test`, `npm run build` e `npm run test:integration`.
+7. Valide login, uma gravação e sua leitura após reinício, upload e revogação de
+   autorização no ambiente de homologação antes de publicar.
+
+Os scripts antigos de fotos editam o conteúdo inicial local, não o banco de produção.
+Fotos novas são privadas até serem vinculadas a conteúdo publicado/autorizado.
+Os arquivos históricos locais são servidos pelo mesmo controle de autorização.

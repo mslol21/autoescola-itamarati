@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -6,11 +7,11 @@ import { db } from '@/lib/db';
 import { Calendar, User, ArrowLeft, ExternalLink, Share2, ShieldCheck } from 'lucide-react';
 
 interface ArticlePageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
-  const article = db.getNewsArticleBySlug(params.slug);
+  const article = await db.getNewsArticleBySlug((await params).slug);
   if (!article || article.status !== 'publicado') {
     return {
       title: 'Artigo não encontrado | Autoescola Itamarati',
@@ -30,15 +31,14 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 
 export const revalidate = 0;
 
-export default function SingleArticlePage({ params }: ArticlePageProps) {
-  const article = db.getNewsArticleBySlug(params.slug);
+export default async function SingleArticlePage({ params }: ArticlePageProps) {
+  const article = await db.getNewsArticleBySlug((await params).slug);
 
   if (!article || article.status !== 'publicado') {
     notFound();
   }
 
-  const relatedArticles = db
-    .getNewsArticles({ onlyPublished: true })
+  const relatedArticles = (await db.getNewsArticles({ onlyPublished: true }))
     .filter((a) => a.id !== article.id)
     .slice(0, 3);
 
