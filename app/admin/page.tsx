@@ -921,7 +921,7 @@ export default function AdminPage() {
                       fullDesc: '',
                       forWhom: '',
                       requirements: ['RG ou documento com foto', 'CPF regular', 'Comprovante de residência'],
-                      stages: ['Abertura de processo', 'Exame médico', 'Aulas teóricas', 'Aulas práticas', 'Exame final'],
+                      stages: ['Abertura de processo', 'Exame médico', 'Curso teórico CFC somente online', 'Aulas práticas', 'Exame final'],
                       faqs: [],
                       highlight: false,
                       active: true,

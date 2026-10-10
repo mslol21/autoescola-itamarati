@@ -22,8 +22,8 @@ Desenvolvido sob o conceito criativo: **“Sua próxima conquista começa aqui�
 - **Dúvidas Frequentes (FAQ):** Acordeões acessíveis divididos por tópicos (Primeira CNH, Cursos, Agendamento, Pagamento).
 - **Localização e Contato:** Endereço confirmado na R. Saturnino Pereira, 46 (Guaianases), horários de atendimento, telefones e mapa interativo sob demanda.
 - **Páginas Internas Dedicadas:**
-  - `/sobre` — 58 anos de tradição, mais de 60.000 habilitados e princípios éticos;
-  - `/servicos` — Detalhamento de Primeira Habilitação, Adição de Categoria, Renovação, Reciclagem, Habilitação Acolhedora para Idosos e CNH PCD;
+  - `/sobre` — 59 anos de tradição, mais de 80.000 habilitados e princípios éticos;
+  - `/servicos` — Detalhamento de Primeira Habilitação, Adição de Categoria, Renovação, Reciclagem, Habilitação Acolhedora para Idosos;
   - `/cursos` — Cursos profissionais à distância homologados Senatran;
   - `/galeria` — Galeria fotográfica completa com filtros por categoria e lightbox com navegação por teclado (Esc, setas);
   - `/noticias` e `/noticias/[slug]` — Blog completo com busca, filtros, páginas individuais e links de fontes oficiais;

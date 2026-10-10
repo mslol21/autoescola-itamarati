@@ -20,7 +20,7 @@ export default function NextStepSelector({ whatsappClean = '5511970539746' }: Ne
       description:
         'Aulas para carro (categoria B), moto (categoria A) ou ambas juntas (A/B). Conte com instrução acolhedora, paciência redobrada para quem está começando do zero e treinamento no simulador antes de ir para a rua.',
       highlights: [
-        'Aulas teóricas e simulador interativo de direção',
+        'Curso teórico CFC somente online e simulador de direção',
         'Instrutores pacientes e metodologia focada em confiança',
         'Horários flexíveis de segunda a sábado',
         'Acompanhamento passo a passo até o dia da prova prática',
@@ -59,7 +59,6 @@ export default function NextStepSelector({ whatsappClean = '5511970539746' }: Ne
         'Renovação descomplicada com agendamento assistido',
         'Curso de reciclagem para condutores suspensos',
         'Treinamento humanizado para quem já é habilitado mas tem receio',
-        'Alteração de restrição médica PCD para manual',
       ],
       pageUrl: '/servicos',
       pageLabel: 'Explorar todos os serviços',

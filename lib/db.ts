@@ -39,7 +39,7 @@ const initialSeedData: DatabaseSchema = {
     title: 'Seu próximo capítulo',
     titleHighlight: 'começa ao volante.',
     subtitle:
-      'Aulas práticas e teóricas, orientação acolhedora e uma equipe experiente que caminha com você até a conquista da sua independência e habilitação.',
+      'Aulas práticas e curso teórico CFC somente online, orientação acolhedora e uma equipe experiente que caminha com você até a conquista da sua independência e habilitação.',
     ctaPrimaryText: 'Quero começar agora',
     ctaPrimaryHref: '#passo-a-passo',
     ctaSecondaryText: 'Conhecer a Itamarati',
@@ -68,8 +68,8 @@ const initialSeedData: DatabaseSchema = {
     googleMapsUrl: 'https://www.google.com/maps/dir//R.+Saturnino+Pereira,+46+-+Guaianases+-+São+Paulo,+SP/',
     googleMapsEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.1736451088164!2d-46.411496!3d-23.5445992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce644d75984a35%3A0x55208ba2c74c0fc2!2sR.%20Saturnino%20Pereira%2C%2046%20-%20Guaianases%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2008411-009!5e0!3m2!1sen!2sbr!4v1700826934514!5m2!1sen!2sbr',
     stats: {
-      years: 58,
-      graduatedStudents: '+60.000',
+      years: 59,
+      graduatedStudents: '+80.000',
       completedClasses: '+1.000.000',
       trainingHours: '+1.000.000 h',
     },
@@ -92,7 +92,7 @@ const initialSeedData: DatabaseSchema = {
       ],
       stages: [
         'Abertura de processo no DETRAN e exames médico e psicotécnico',
-        'Curso teórico presencial ou EAD com simulados interativos',
+        'Curso teórico CFC somente online (EAD), com simulados interativos',
         'Aprovação na prova teórica oficial',
         'Treinamento no simulador de direção (para categoria B)',
         'Aulas práticas em veículos modernos com instrutores credenciados',
@@ -231,36 +231,6 @@ const initialSeedData: DatabaseSchema = {
       highlight: true,
       active: true,
       whatsappMessage: 'Olá! Gostaria de saber mais sobre o atendimento humanizado para habilitação sem restrição de idade da Itamarati.',
-    },
-    {
-      id: 'srv-6',
-      slug: 'alteracao-pcd-para-manual',
-      title: 'Alteração de CNH Especial PCD para Manual',
-      category: 'especiais',
-      categoryLabel: 'Alteração de Restrição',
-      shortDesc: 'Mudança de CNH adaptada ou com restrição para categoria convencional com respaldo técnico e agilidade.',
-      fullDesc: 'Se você possui alguma restrição na CNH que deseja retirar ou atualizar para veículos convencionais, nossa equipe orienta todos os trâmites junto à junta médica do DETRAN.',
-      forWhom: 'Condutores que desejam alterar restrições médicas registradas na CNH.',
-      requirements: [
-        'CNH atualizada',
-        'Laudo médico atualizado se aplicável',
-        'Nova avaliação médica perante perito credenciado',
-      ],
-      stages: [
-        'Abertura do processo de revisão de restrições',
-        'Perícia médica no órgão oficial',
-        'Aulas complementares se exigido pela junta médica',
-        'Emissão da CNH atualizada',
-      ],
-      faqs: [
-        {
-          q: 'Como funciona a perícia médica para retirar a restrição?',
-          a: 'Nossa equipe orienta a documentação necessária para que você realize a perícia no DETRAN com tranquilidade.',
-        },
-      ],
-      highlight: false,
-      active: true,
-      whatsappMessage: 'Olá! Gostaria de tirar dúvidas sobre o serviço de alteração de CNH com restrição PCD para manual.',
     },
   ],
   courses: [

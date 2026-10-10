@@ -101,10 +101,10 @@ Na Itamarati, você conta com pista própria de treino, motos em perfeito estado
     id: 'news-guaianases',
     slug: 'autoescola-itamarati-em-guaianases-tradicao-e-metodo',
     title: 'Tradição e Modernidade: Por que a Itamarati é Referência em Guaianases',
-    summary: 'Com mais de 58 anos de história e mais de 60.000 condutores habilitados, o Centro de Formação de Condutores Itamarati une método acolhedor e infraestrutura completa.',
+    summary: 'Com 59 anos de história e mais de 80.000 condutores habilitados, o Centro de Formação de Condutores Itamarati une método acolhedor e infraestrutura completa.',
     content: `Localizada na Rua Saturnino Pereira, 46, na divisa de Guaianases com o Lajeado, a Autoescola Itamarati é um ponto histórico de referência para milhares de famílias da Zona Leste paulistana.
 
-### 58 anos formando condutores com respeito
+### 59 anos formando condutores com respeito
 A longevidade da empresa é resultado direto do compromisso com a qualidade de ensino e o respeito a cada aluno:
 - **Atendimento sem burocracia:** orientações claras sobre documentação, taxas e agendamentos no DETRAN;
 - **Simulador de direção:** tecnologia para criar memória muscular de pedais e marcha antes de ir para a via pública;

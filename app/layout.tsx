@@ -8,7 +8,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 export const metadata: Metadata = {
   title: 'Autoescola Itamarati | CNH, Primeira Habilitação e Cursos em Guaianases',
   description:
-    'Sua próxima conquista começa aqui. Há mais de 58 anos formando condutores conscientes em Guaianases e Lajeado, São Paulo. CNH categorias A, B, AB, adição, renovação e cursos profissionalizantes homologados Senatran.',
+    'Sua próxima conquista começa aqui. Há 59 anos formando condutores conscientes em Guaianases e Lajeado, São Paulo. CNH categorias A, B, AB, adição, renovação e cursos profissionalizantes homologados Senatran.',
   keywords: [
     'Autoescola Itamarati',
     'Autoescola em Guaianases',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     url: 'https://autoescolaitamarati.com.br',
     title: 'Autoescola Itamarati | Sua Próxima Conquista Começa Aqui',
     description:
-      'Aulas práticas e teóricas com didática acolhedora, frota moderna e cursos Senatran em Guaianases, São Paulo.',
+      'Aulas práticas e curso teórico CFC somente online, com didática acolhedora, frota moderna e cursos Senatran em Guaianases, São Paulo.',
     siteName: 'Autoescola Itamarati',
     images: [
       {
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Autoescola Itamarati | CNH e Cursos Homologados',
     description:
-      'Mais de 58 anos de tradição em Guaianases, São Paulo. Acolhimento, respeito e formação para todas as idades.',
+      '59 anos de tradição em Guaianases, São Paulo. Acolhimento, respeito e formação para todas as idades.',
     images: ['/images/hero-facade.png'],
   },
   robots: {

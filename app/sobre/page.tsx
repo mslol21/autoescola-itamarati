@@ -15,9 +15,9 @@ import {
 } from 'lucide-react';
 
 export const metadata = {
-  title: 'Sobre a Autoescola Itamarati | 58 Anos de História e Tradição',
+  title: 'Sobre a Autoescola Itamarati | 59 Anos de História e Tradição',
   description:
-    'Conheça a história da Autoescola Itamarati, fundada há mais de cinco décadas em Guaianases. Valores éticos, equipe humanizada e mais de 60.000 alunos habilitados.',
+    'Conheça a história da Autoescola Itamarati, fundada há mais de cinco décadas em Guaianases. Valores éticos, equipe humanizada e mais de 80.000 alunos habilitados.',
 };
 
 export default function SobrePage() {
@@ -58,10 +58,10 @@ export default function SobrePage() {
           Nossa Trajetória
         </span>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-4">
-          Conduzindo gerações há mais de 58 anos
+          Conduzindo gerações há 59 anos
         </h1>
         <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-          Fundada há 58 anos em Guaianases, a Autoescola Itamarati construiu sua história acreditando que o ato de dirigir representa liberdade, dignidade e oportunidade para as famílias da Zona Leste paulistana.
+          Fundada há 59 anos em Guaianases, a Autoescola Itamarati construiu sua história acreditando que o ato de dirigir representa liberdade, dignidade e oportunidade para as famílias da Zona Leste paulistana.
         </p>
       </section>
 
@@ -70,11 +70,11 @@ export default function SobrePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="space-y-1">
-              <span className="text-3xl sm:text-4xl font-extrabold text-amber-400">58 Anos</span>
+              <span className="text-3xl sm:text-4xl font-extrabold text-amber-400">59 Anos</span>
               <p className="text-xs sm:text-sm text-slate-300 font-medium">De história e tradição</p>
             </div>
             <div className="space-y-1">
-              <span className="text-3xl sm:text-4xl font-extrabold text-amber-400">+60.000</span>
+              <span className="text-3xl sm:text-4xl font-extrabold text-amber-400">+80.000</span>
               <p className="text-xs sm:text-sm text-slate-300 font-medium">Alunos habilitados</p>
             </div>
             <div className="space-y-1">
@@ -97,7 +97,7 @@ export default function SobrePage() {
               Uma história construída sobre pessoas e respeito
             </h2>
             <p>
-              Com mais de 60.000 alunos formados, temos o orgulho de ver pais, filhos e até netos de uma mesma família passando pelas nossas salas de aula e veículos de treinamento.
+              Com mais de 80.000 alunos formados, temos o orgulho de ver pais, filhos e até netos de uma mesma família aprendendo conosco no curso teórico online e nos veículos de treinamento.
             </p>
             <p>
               Entendemos que ensinar alguém a dirigir não é apenas cumprir uma ementa técnica do código de trânsito: é lidar com a expectativa, a ansiedade e os sonhos de independência das pessoas.
