@@ -1,24 +1,10 @@
-import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
-import { isUserAdmin } from '@/lib/auth';
-
-export async function GET() {
-  const hero = db.getHeroConfig();
-  return NextResponse.json(hero);
-}
-
-export async function PUT(request: Request) {
-  const isAdmin = await isUserAdmin();
-  if (!isAdmin) {
-    return NextResponse.json({ error: 'Não autorizado.' }, { status: 401 });
-  }
-
-  try {
-    const body = await request.json();
-    const updated = db.updateHeroConfig(body);
-    return NextResponse.json({ success: true, hero: updated });
-  } catch (error) {
-    console.error('Error updating hero config:', error);
-    return NextResponse.json({ error: 'Erro ao salvar configuração do Hero.' }, { status: 500 });
-  }
-}
+import { handle, json, readJson, requireAdmin } from '@/lib/http';
+import { heroSchema } from '@/lib/validation';
+export const dynamic = 'force-dynamic';
+export async function GET() { return handle(async () => { await requireAdmin(); return json(await db.getHeroConfig()); }); }
+export async function PUT(request: Request) { return handle(async () => {
+  await requireAdmin(request);
+  const body = heroSchema.parse(await readJson(request));
+  return json({ success: true, hero: await db.updateHeroConfig(body) });
+}); }

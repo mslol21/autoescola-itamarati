@@ -144,6 +144,7 @@ export default function AdminPage() {
         fetch('/api/admin/faqs'),
       ]);
 
+      if ([hRes, sRes, srvRes, cRes, gRes, nRes, tRes, fRes].some(res => !res.ok)) throw new Error('Falha ao carregar os dados.');
       if (hRes.ok) setHero(await hRes.json());
       if (sRes.ok) setSettings(await sRes.json());
       if (srvRes.ok) setServices(await srvRes.json());
@@ -189,11 +190,12 @@ export default function AdminPage() {
   // Handle Logout
   const handleLogout = async () => {
     try {
-      await fetch('/api/auth/logout', { method: 'POST' });
+      const response = await fetch('/api/auth/logout', { method: 'POST' });
+      if (!response.ok) throw new Error('Falha ao encerrar a sessão.');
       setIsAuthenticated(false);
       showToast('success', 'Sessão encerrada com sucesso.');
     } catch {
-      setIsAuthenticated(false);
+      showToast('error', 'Não foi possível encerrar a sessão. Tente novamente.');
     }
   };
 
@@ -375,8 +377,8 @@ export default function AdminPage() {
       showToast('error', 'A nova senha e a confirmação não coincidem.');
       return;
     }
-    if (pwdNew.length < 6) {
-      showToast('error', 'A senha deve ter pelo menos 6 caracteres.');
+    if (pwdNew.length < 12) {
+      showToast('error', 'A senha deve ter pelo menos 12 caracteres.');
       return;
     }
 
@@ -713,7 +715,7 @@ export default function AdminPage() {
                         coverImage: '',
                         category: 'Dicas Práticas',
                         author: 'Equipe Itamarati',
-                        status: 'publicado',
+                        status: 'rascunho',
                         publishedAt: new Date().toISOString().split('T')[0],
                         updatedAt: new Date().toISOString().split('T')[0],
                         isFeaturedHome: false,
@@ -743,7 +745,7 @@ export default function AdminPage() {
                         categoryBadge: 'Categoria B',
                         caption: '',
                         isFeaturedHome: true,
-                        autorizadoUsoImagem: true,
+                        autorizadoUsoImagem: false,
                         order: gallery.length + 1,
                         createdAt: new Date().toISOString().split('T')[0],
                       });
@@ -1097,7 +1099,7 @@ export default function AdminPage() {
                       categoryBadge: 'Categoria B',
                       caption: '',
                       isFeaturedHome: true,
-                      autorizadoUsoImagem: true,
+                      autorizadoUsoImagem: false,
                       order: gallery.length + 1,
                       createdAt: new Date().toISOString().split('T')[0],
                     })

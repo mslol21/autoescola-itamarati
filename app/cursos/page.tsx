@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import { db } from '@/lib/db';
 import CoursesSection from '@/components/CoursesSection';
@@ -9,9 +10,9 @@ export const metadata = {
     'Cursos 100% online homologados pela Senatran: Transporte Coletivo de Passageiros (TCP), Produtos Perigosos (MOPP), Emergência, Escolar, Cargas Indivisíveis e NRs.',
 };
 
-export default function CursosPage() {
-  const courses = db.getCourses(true);
-  const settings = db.getSettings();
+export default async function CursosPage() {
+  const courses = await db.getCourses(true);
+  const settings = await db.getSettings();
 
   const waGeneral = `https://api.whatsapp.com/send?phone=${settings.whatsappClean}&text=${encodeURIComponent(
     'Olá! Gostaria de consultar informações sobre os CURSOS PROFISSIONALIZANTES homologados pela Senatran.'

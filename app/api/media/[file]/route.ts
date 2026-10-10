@@ -1,36 +1,27 @@
-import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-
-// Serves images uploaded through /admin. Files live in data/uploads (outside
-// /public) because `next start` only serves public files that existed at build time.
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { getSupabase } from '@/lib/supabase';
+import { getAdminSession } from '@/lib/auth';
+import { handle, HttpError } from '@/lib/http';
+import { isPublicMedia, MEDIA_BUCKET } from '@/lib/media';
 export const dynamic = 'force-dynamic';
-
-const TYPES: Record<string, string> = {
-  '.jpg': 'image/jpeg',
-  '.jpeg': 'image/jpeg',
-  '.png': 'image/png',
-  '.webp': 'image/webp',
-  '.gif': 'image/gif',
-};
-
-export async function GET(_req: Request, { params }: { params: { file: string } }) {
-  const name = path.basename(params.file || '');
-  const ext = path.extname(name).toLowerCase();
-  if (!name || name !== params.file || !TYPES[ext]) {
-    return new NextResponse('Not found', { status: 404 });
-  }
-  const filePath = path.join(process.cwd(), 'data', 'uploads', name);
-  if (!fs.existsSync(filePath)) {
-    return new NextResponse('Not found', { status: 404 });
-  }
-  const buf = fs.readFileSync(filePath);
-  return new NextResponse(buf, {
-    headers: {
-      'Content-Type': TYPES[ext],
-      'Content-Length': String(buf.length),
-      'Cache-Control': 'public, max-age=31536000, immutable',
-      'X-Content-Type-Options': 'nosniff',
-    },
+export async function GET(_request: Request, { params }: { params: Promise<{ file: string }> }) {
+  return handle(async () => {
+    const { file } = await params;
+    if (!/^[a-zA-Z0-9_-]+\.(?:webp|jpg|jpeg|png|gif)$/.test(file)) throw new HttpError(404, 'Não encontrado.');
+    const url = `/api/media/${file}`;
+    if (!await isPublicMedia(url) && !await getAdminSession()) throw new HttpError(404, 'Não encontrado.');
+    let bytes: Uint8Array;
+    let mime = 'image/webp';
+    if (/^insta-\d{2}\.jpg$/.test(file)) {
+      try { bytes = new Uint8Array(await readFile(path.join(process.cwd(), 'data', 'legacy-media', file))); mime = 'image/jpeg'; }
+      catch { throw new HttpError(404, 'Não encontrado.'); }
+    } else {
+      const { data, error } = await getSupabase().storage.from(MEDIA_BUCKET).download(file);
+      if (error || !data) throw new HttpError(404, 'Não encontrado.');
+      bytes = new Uint8Array(await data.arrayBuffer());
+      mime = ({ jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', gif: 'image/gif', webp: 'image/webp' } as Record<string,string>)[file.split('.').pop()!] || mime;
+    }
+    return new Response(bytes as BodyInit, { headers: { 'Content-Type': mime, 'Content-Length': String(bytes.length), 'Cache-Control': 'private, no-store', 'X-Content-Type-Options': 'nosniff' } });
   });
 }

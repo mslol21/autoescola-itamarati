@@ -62,6 +62,7 @@ async function run() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+      'Origin': 'http://localhost:3000',
         'Content-Length': Buffer.byteLength(contactPayload),
       },
     },

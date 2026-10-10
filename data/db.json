@@ -436,7 +436,7 @@
       "title": "Tire sua habilitação na Itamarati",
       "category": "conquistas",
       "categoryLabel": "Conquistas",
-      "imageUrl": "/images/insta/insta-02.jpg",
+      "imageUrl": "/api/media/insta-02.jpg",
       "categoryBadge": "Instagram",
       "caption": "Aqui você alcança seu objetivo e realiza seu sonho.",
       "isFeaturedHome": true
@@ -450,7 +450,7 @@
       "title": "Sua CNH, sua liberdade",
       "category": "aulas",
       "categoryLabel": "Aulas",
-      "imageUrl": "/images/insta/insta-04.jpg",
+      "imageUrl": "/api/media/insta-04.jpg",
       "categoryBadge": "Carro e moto",
       "caption": "CNH de carro e moto com quem tem tradição desde 1967.",
       "isFeaturedHome": true
@@ -464,7 +464,7 @@
       "title": "Curso de Motofrete",
       "category": "aulas",
       "categoryLabel": "Aulas",
-      "imageUrl": "/images/insta/insta-07.jpg",
+      "imageUrl": "/api/media/insta-07.jpg",
       "categoryBadge": "Curso",
       "caption": "Pilotagem segura, rotas, logística e legislação para quem trabalha com entregas.",
       "isFeaturedHome": true
@@ -478,7 +478,7 @@
       "title": "Se você faz delivery",
       "category": "eventos",
       "categoryLabel": "Eventos",
-      "imageUrl": "/images/insta/insta-01.jpg",
+      "imageUrl": "/api/media/insta-01.jpg",
       "categoryBadge": "Orientação",
       "caption": "Quem trabalha com entrega precisa estar regularizado.",
       "isFeaturedHome": true
@@ -492,7 +492,7 @@
       "title": "Transporte de cargas indivisíveis",
       "category": "aulas",
       "categoryLabel": "Aulas",
-      "imageUrl": "/images/insta/insta-05.jpg",
+      "imageUrl": "/api/media/insta-05.jpg",
       "categoryBadge": "Curso",
       "caption": "Formação para motoristas que querem se especializar.",
       "isFeaturedHome": false
@@ -506,7 +506,7 @@
       "title": "Motorista de transporte de emergência",
       "category": "aulas",
       "categoryLabel": "Aulas",
-      "imageUrl": "/images/insta/insta-03.jpg",
+      "imageUrl": "/api/media/insta-03.jpg",
       "categoryBadge": "Curso on-line",
       "caption": "Curso para atuar no atendimento de emergência.",
       "isFeaturedHome": false
@@ -520,7 +520,7 @@
       "title": "Multas e pontos na CNH?",
       "category": "eventos",
       "categoryLabel": "Eventos",
-      "imageUrl": "/images/insta/insta-06.jpg",
+      "imageUrl": "/api/media/insta-06.jpg",
       "categoryBadge": "Orientação",
       "caption": "Não espere perder sua habilitação: fale com a equipe.",
       "isFeaturedHome": false
@@ -533,7 +533,7 @@
       "title": "Habilitação Categoria A: A Importância da Formação para Motoboys e Motogirls",
       "summary": "Com a expansão do mercado de entregas urbanas e mobilidade em duas rodas, estar com a CNH categoria A regularizada garante segurança jurídica e profissionalismo.",
       "content": "O uso da motocicleta como instrumento de trabalho e mobilidade urbana cresce ano a ano na Grande São Paulo. Seja para entregas de aplicativo, motofrete ou deslocamento diário, ter a Carteira Nacional de Habilitação (Categoria A) válida e bem treinada é o primeiro passo para uma jornada segura e produtiva.\n\n### Pilotagem defensiva como prioridade\nDiferente de conduzir um automóvel, o motociclista está diretamente exposto aos impactos do tráfego. Por isso, a didática da Autoescola Itamarati enfatiza:\n- Postura corporal correta e distribuição do peso sobre a moto;\n- Frenagem combinada (dianteira e traseira) evitando travamentos bruscos;\n- Antecipação de pontos cegos de carros, ônibus e caminhões;\n- Uso correto e manutenção de equipamentos de proteção individual (capacete homologado, jaqueta e calçados adequados).\n\n### Agilidade para quem deseja trabalhar\nNa Itamarati, você conta com pista própria de treino, motos em perfeito estado de conservação e instrutores credenciados que orientam cada manobra do exame prático com paciência e clareza.",
-      "coverImage": "/images/insta/insta-07.jpg",
+      "coverImage": "/api/media/insta-07.jpg",
       "category": "Carreira & Mobilidade",
       "author": "Instrutor Técnico Itamarati",
       "status": "publicado",
@@ -549,7 +549,7 @@
       "title": "Tradição e Modernidade: Por que a Itamarati é Referência em Guaianases",
       "summary": "Com 59 anos de história e mais de 80.000 condutores habilitados, o Centro de Formação de Condutores Itamarati une método acolhedor e infraestrutura completa.",
       "content": "Localizada na Rua Saturnino Pereira, 46, na divisa de Guaianases com o Lajeado, a Autoescola Itamarati é um ponto histórico de referência para milhares de famílias da Zona Leste paulistana.\n\n### 59 anos formando condutores com respeito\nA longevidade da empresa é resultado direto do compromisso com a qualidade de ensino e o respeito a cada aluno:\n- **Atendimento sem burocracia:** orientações claras sobre documentação, taxas e agendamentos no DETRAN;\n- **Simulador de direção:** tecnologia para criar memória muscular de pedais e marcha antes de ir para a via pública;\n- **Frota própria moderna:** carros com ar-condicionado, direção assistida e manutenção preventiva rigorosa;\n- **Respeito a todas as idades:** atendimento dedicado tanto ao jovem de 18 anos quanto ao aluno que busca sua habilitação na terceira idade.\n\nVenha nos visitar e tomar um café na nossa recepção. Sua próxima conquista começa aqui!",
-      "coverImage": "/images/insta/insta-02.jpg",
+      "coverImage": "/api/media/insta-02.jpg",
       "category": "Institucional & Região",
       "author": "Equipe Itamarati",
       "status": "publicado",
@@ -566,7 +566,7 @@
       "title": "Curso de motorista de transporte de emergência",
       "summary": "Formação on-line para quem quer atuar na condução de veículos de emergência. Estude no seu tempo e fale com a equipe sobre inscrição.",
       "content": "O curso de **motorista de transporte de emergência** prepara condutores para atuar com responsabilidade em uma das funções mais importantes do trânsito.\n\n### Como funciona\n- Estudo on-line, no celular ou computador;\n- Conteúdo prático e direto ao ponto;\n- Certificado ao final do curso;\n- Suporte da equipe durante o curso.\n\nRequisitos, valores e inscrição: fale com a equipe pelo WhatsApp.",
-      "coverImage": "/images/insta/insta-03.jpg",
+      "coverImage": "/api/media/insta-03.jpg",
       "category": "Cursos",
       "author": "Equipe Itamarati",
       "publishedAt": "2026-06-23",
@@ -581,7 +581,7 @@
       "title": "Cursos profissionalizantes: Motofrete, MOPP, cargas indivisíveis e emergência",
       "summary": "Para quem quer crescer no mercado de trabalho como motorista, a Itamarati oferece cursos com certificado. Conheça as opções e fale com a equipe.",
       "content": "Quer aumentar suas oportunidades no mercado de trabalho? Além da primeira habilitação, a Itamarati oferece cursos profissionalizantes para motoristas.\n\n### Alguns dos cursos divulgados pela equipe\n- **Motofrete** – pilotagem segura, transporte de cargas, rotas e legislação;\n- **MOPP** – movimentação operacional de produtos perigosos;\n- **Transporte de cargas indivisíveis** – planejamento de rotas, sinalização, escolta e documentação;\n- **Motorista de transporte de emergência** – formação para atuar no atendimento de emergência.\n\nValores, carga horária, modalidade e próximas turmas são informados diretamente pela equipe. Chame no WhatsApp e tire suas dúvidas.",
-      "coverImage": "/images/insta/insta-05.jpg",
+      "coverImage": "/api/media/insta-05.jpg",
       "category": "Cursos",
       "author": "Equipe Itamarati",
       "publishedAt": "2026-05-17",
@@ -595,7 +595,7 @@
       "title": "Como Vencer a Ansiedade no Dia do Exame Prático de Direção",
       "summary": "Dicas práticas preparadas pelos nossos instrutores para manter a calma e mostrar tudo o que você aprendeu nas aulas.",
       "content": "O exame prático é o momento mais aguardado do processo de habilitação. É natural sentir um 'frio na barriga', mas o nervosismo excessivo não precisa atrapalhar o seu desempenho.\n\n### 1. Durma bem na noite anterior\nO cansaço físico reduz os reflexos e a capacidade de concentração. Evite bebidas energéticas em excesso antes do exame.\n\n### 2. Chegue com antecedência e respire fundo\nChegar correndo aumenta a frequência cardíaca e a sensação de urgência. Planeje chegar com tempo hábil para se ambientar e tomar uma água.\n\n### 3. Ajuste banco, retrovisores e cinto sem pressa\nEste é o seu ritual de partida. Não tenha vergonha de levar 30 segundos adicionais para garantir que a postura e os espelhos estão na posição perfeita para você.\n\n### 4. Lembre-se: o examinador apenas avalia o que você já treinou\nVocê completou a carga horária e foi liberado pelo seu instrutor porque demonstrou capacidade técnica. O examinador não quer prejudicá-lo, apenas conferir se você executa os comandos com calma e segurança.\n\nA confiança se constrói aula após aula. A equipe Itamarati torce por cada um dos seus alunos!",
-      "coverImage": "/images/insta/insta-04.jpg",
+      "coverImage": "/api/media/insta-04.jpg",
       "category": "Dicas para Alunos",
       "author": "Coordenação de Trânsito Itamarati",
       "status": "publicado",
@@ -611,7 +611,7 @@
       "title": "Prazos de Validade da CNH: O que Mudou na Renovação",
       "summary": "Entenda os critérios de validade do exame de aptidão física e mental de acordo com a faixa etária do condutor.",
       "content": "Com as atualizações do Código de Trânsito Brasileiro, os prazos de validade do exame de aptidão física e mental para renovação da CNH foram ajustados conforme a idade do condutor:\n\n- **Condutores com menos de 50 anos de idade:** exame válido por até 10 anos;\n- **Condutores com idade igual ou superior a 50 anos e inferior a 70 anos:** exame válido por até 5 anos;\n- **Condutores com 70 anos de idade ou mais:** exame válido por até 3 anos.\n\n> **Importante:** O médico perito examinador pode fixar prazo menor caso identifique condições clínicas específicas.\n\n### Dica para condutores profissionais\nCondutores com CNH nas categorias C, D ou E continuam sujeitos à obrigatoriedade do exame toxicológico periódico com janela de detecção mínima de 90 dias a cada 2 anos e meio.\n\nA equipe da Autoescola Itamarati está à disposição para auxiliar você no agendamento e trâmites de renovação.",
-      "coverImage": "/images/insta/insta-06.jpg",
+      "coverImage": "/api/media/insta-06.jpg",
       "category": "Dicas & Procedimentos",
       "author": "Atendimento Itamarati",
       "status": "rascunho",
@@ -628,7 +628,7 @@
       "title": "Esclarecimento Oficial: Aulas em Autoescolas Continuam Obrigatórias no Brasil",
       "summary": "Secretaria de Comunicação Social (Secom) desmente boatos disseminados em redes sociais sobre suposto fim da obrigatoriedade das autoescolas.",
       "content": "Recentemente, circularam em redes sociais mensagens e vídeos imprecisos alegando que as autoescolas teriam deixado de ser obrigatórias para a obtenção da Carteira Nacional de Habilitação (CNH).\n\nO Governo Federal, por meio da Secretaria de Comunicação Social (Secom), e a Secretaria Nacional de Trânsito (Senatran) emitiram comunicado esclarecendo que a informação é **falsa**.\n\n### O que diz a legislação vigente?\nA formação teórica e prática realizada em Centros de Formação de Condutores (CFCs) credenciados continua sendo exigência legal expressa no Código de Trânsito Brasileiro (Lei nº 9.503/1997) e nas resoluções vigentes do Conselho Nacional de Trânsito (Contran).\n\n### Por que a formação profissional é indispensável?\nA formação de motoristas não se resume a aprender a movimentar um veículo mecânico. Ela abrange:\n- Conhecimento aprofundado da legislação de trânsito brasileira;\n- Noções cruciais de primeiros socorros e mecânica preventiva;\n- Consciência de direção defensiva e proteção aos pedestres e ciclistas;\n- Ética e convivência compartilhada no espaço público.\n\nA Autoescola Itamarati reforça seu compromisso com a formação séria, segura e transparente de novos motoristas.",
-      "coverImage": "/images/insta/insta-01.jpg",
+      "coverImage": "/api/media/insta-01.jpg",
       "category": "Legislação & Fatos",
       "author": "Equipe Pedagógica Itamarati",
       "status": "rascunho",
@@ -780,9 +780,5 @@
       "order": 7,
       "active": true
     }
-  ],
-  "adminCredentials": {
-    "username": "admin",
-    "passwordHash": "itamarati2026"
-  }
+  ]
 }

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import Link from 'next/link';
 import { db } from '@/lib/db';
@@ -20,8 +21,8 @@ export const metadata = {
     'Conheça a história da Autoescola Itamarati, fundada há mais de cinco décadas em Guaianases. Valores éticos, equipe humanizada e mais de 80.000 alunos habilitados.',
 };
 
-export default function SobrePage() {
-  const settings = db.getSettings();
+export default async function SobrePage() {
+  const settings = await db.getSettings();
 
   const values = [
     {
@@ -131,21 +132,21 @@ export default function SobrePage() {
             </div>
             <div className="rounded-3xl overflow-hidden shadow-subtle border border-slate-200 aspect-[4/5] translate-y-6">
               <img
-                src="/images/insta/insta-02.jpg"
+                src="/api/media/insta-02.jpg"
                 alt="Post da Itamarati: tire sua habilitação"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="rounded-3xl overflow-hidden shadow-subtle border border-slate-200 aspect-[4/5]">
               <img
-                src="/images/insta/insta-04.jpg"
+                src="/api/media/insta-04.jpg"
                 alt="Post da Itamarati: CNH de carro e moto"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="rounded-3xl overflow-hidden shadow-subtle border border-slate-200 aspect-[4/5] translate-y-6">
               <img
-                src="/images/insta/insta-07.jpg"
+                src="/api/media/insta-07.jpg"
                 alt="Post da Itamarati: curso de motofrete"
                 className="w-full h-full object-cover"
               />

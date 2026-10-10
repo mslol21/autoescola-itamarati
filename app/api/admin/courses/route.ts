@@ -1,57 +1,22 @@
-import { NextResponse } from 'next/server';
+import { randomUUID } from 'node:crypto';
 import { db } from '@/lib/db';
-import { isUserAdmin } from '@/lib/auth';
-import { Course } from '@/lib/types';
-
-export async function GET() {
-  const courses = db.getCourses(false);
-  return NextResponse.json(courses);
-}
-
-export async function POST(request: Request) {
-  const isAdmin = await isUserAdmin();
-  if (!isAdmin) {
-    return NextResponse.json({ error: 'Não autorizado.' }, { status: 401 });
-  }
-
-  try {
-    const body = (await request.json()) as Course;
-    if (!body.title || !body.slug) {
-      return NextResponse.json(
-        { error: 'Título e slug são obrigatórios.' },
-        { status: 400 }
-      );
-    }
-
-    if (!body.id) {
-      body.id = `crs-${Date.now()}`;
-    }
-
-    const saved = db.saveCourse(body);
-    return NextResponse.json({ success: true, course: saved });
-  } catch (error) {
-    console.error('Error saving course:', error);
-    return NextResponse.json({ error: 'Erro ao salvar curso.' }, { status: 500 });
-  }
-}
-
-export async function DELETE(request: Request) {
-  const isAdmin = await isUserAdmin();
-  if (!isAdmin) {
-    return NextResponse.json({ error: 'Não autorizado.' }, { status: 401 });
-  }
-
-  try {
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get('id');
-    if (!id) {
-      return NextResponse.json({ error: 'ID é obrigatório.' }, { status: 400 });
-    }
-
-    const deleted = db.deleteCourse(id);
-    return NextResponse.json({ success: deleted });
-  } catch (error) {
-    console.error('Error deleting course:', error);
-    return NextResponse.json({ error: 'Erro ao excluir curso.' }, { status: 500 });
-  }
-}
+import { handle, json, readJson, requireAdmin } from '@/lib/http';
+import { courseSchema, idSchema } from '@/lib/validation';
+export const dynamic = 'force-dynamic';
+export async function GET() { return handle(async () => {
+  await requireAdmin();
+  return json(await db.getCourses(false));
+}); }
+export async function POST(request: Request) { return handle(async () => {
+  await requireAdmin(request);
+  const body = courseSchema.parse(await readJson(request));
+  const item = { ...body, id: body.id || randomUUID() };
+  const saved = await db.saveCourse(item);
+  return json({ success: true, course: saved });
+}); }
+export async function DELETE(request: Request) { return handle(async () => {
+  await requireAdmin(request);
+  const id = idSchema.parse(new URL(request.url).searchParams.get('id'));
+  const deleted = await db.deleteCourse(id);
+  return deleted ? json({ success: true }) : json({ error: 'Registro não encontrado.' },404);
+}); }

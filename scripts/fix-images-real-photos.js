@@ -5,7 +5,7 @@ const path = require('path');
 
 const dbPath = path.join(__dirname, '../data/db.json');
 const db = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
-const I = (n) => `/images/insta/insta-0${n}.jpg`;
+const I = (n) => `/api/media/insta-0${n}.jpg`;
 
 // Hero (client's storefront photo)
 db.hero.heroImageUrl = '/images/hero-facade.png';

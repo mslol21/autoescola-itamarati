@@ -1,15 +1,7 @@
-import { NextResponse } from 'next/server';
 import { getAdminSession } from '@/lib/auth';
-
-export async function GET() {
+import { handle, json } from '@/lib/http';
+export const dynamic = 'force-dynamic';
+export async function GET() { return handle(async () => {
   const session = await getAdminSession();
-  if (!session) {
-    return NextResponse.json({ authenticated: false });
-  }
-
-  return NextResponse.json({
-    authenticated: true,
-    username: session.username,
-    role: session.role,
-  });
-}
+  return json(session ? { authenticated: true, username: session.username, role: session.role } : { authenticated: false });
+}); }

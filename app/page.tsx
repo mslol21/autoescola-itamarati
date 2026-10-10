@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import React from 'react';
 import Link from 'next/link';
 import { db } from '@/lib/db';
@@ -44,16 +45,15 @@ function SectionHead({
   );
 }
 
-export default function HomePage() {
-  const hero = db.getHeroConfig();
-  const settings = db.getSettings();
-  const featuredGallery = db.getGalleryItems({ onlyAuthorized: true, onlyFeaturedHome: true });
-  const allGallery = db.getGalleryItems({ onlyAuthorized: true });
+export default async function HomePage() {
+  const [hero, settings, allGallery, featuredNews, testimonials, faqs, courses] = await Promise.all([
+    db.getHeroConfig(), db.getSettings(), db.getGalleryItems({ onlyAuthorized: true }),
+    db.getNewsArticles({ onlyPublished: true, onlyFeaturedHome: true }),
+    db.getTestimonials(true), db.getFaqs(true), db.getCourses(true),
+  ]);
+  const featuredGallery = allGallery.filter(item => item.isFeaturedHome);
   const insideGallery = allGallery.filter((i) => ['estrutura', 'equipe', 'aulas'].includes(i.category)).slice(0, 3);
-  const featuredNews = db.getNewsArticles({ onlyPublished: true, onlyFeaturedHome: true });
-  const testimonials = db.getTestimonials(true);
-  const faqs = db.getFaqs(true);
-  const featuredCourses = db.getCourses(true).filter((c) => c.isFeatured);
+  const featuredCourses = courses.filter(c => c.isFeatured);
 
   const mainNews = featuredNews[0];
   const secondaryNews = featuredNews.slice(1, 4);

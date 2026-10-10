@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import type { Metadata } from 'next';
 import './globals.css';
 import { db } from '@/lib/db';
@@ -57,12 +58,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const settings = db.getSettings();
+  const settings = await db.getSettings();
 
   // Schema.org LocalBusiness structured data
   const jsonLd = {
@@ -114,7 +115,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
         />
       </head>
       <body className="min-h-screen flex flex-col bg-white text-slate-800 antialiased selection:bg-accent-400 selection:text-ink">

@@ -1,9 +1,10 @@
+export const dynamic = 'force-dynamic';
 import { MetadataRoute } from 'next';
 import { db } from '@/lib/db';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://autoescolaitamarati.com.br';
-  const articles = db.getNewsArticles({ onlyPublished: true });
+  const articles = await db.getNewsArticles({ onlyPublished: true });
 
   const newsEntries: MetadataRoute.Sitemap = articles.map((article) => ({
     url: `${baseUrl}/noticias/${article.slug}`,
