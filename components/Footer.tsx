@@ -62,8 +62,8 @@ export default function Footer({ settings }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4 space-y-5">
-            <Link href="/" className="inline-block bg-white rounded-xl px-4 py-3">
-              <img src="/images/logo-itamarati.png" alt="Autoescola Itamarati — desde 1967" width={815} height={306} className="h-10 w-auto" />
+            <Link href="/" className="inline-block overflow-hidden rounded-xl bg-black p-2">
+              <img src="/images/logo-itamarati-2026.jpg" alt="Autoescola Itamarati — desde 1967" width={1536} height={1024} className="h-[68px] w-[220px] object-cover object-center" />
             </Link>
             <p className="text-sm leading-relaxed text-slate-400 max-w-xs">
               Centro de Formação de Condutores em Guaianases, São Paulo. Formando motoristas desde 1967.

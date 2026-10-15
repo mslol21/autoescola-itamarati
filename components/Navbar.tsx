@@ -65,11 +65,11 @@ export default function Navbar({
         <div className="flex items-center justify-between h-16 sm:h-[72px] gap-4">
           <Link href="/" className="shrink-0 rounded-md" aria-label="Autoescola Itamarati — página inicial">
             <img
-              src="/images/logo-itamarati.png"
+              src="/images/logo-itamarati-2026.jpg"
               alt="Autoescola Itamarati — desde 1967"
-              width={815}
-              height={306}
-              className="h-9 sm:h-11 w-auto"
+              width={1536}
+              height={1024}
+              className="h-12 w-[156px] sm:h-[55px] sm:w-[180px] rounded-md bg-black object-cover object-center"
             />
           </Link>
 
