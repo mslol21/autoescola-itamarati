@@ -7,7 +7,7 @@ import { MapPin, Phone, MessageCircle, Mail, Clock, Navigation } from 'lucide-re
 export const metadata = {
   title: 'Fale Conosco | Autoescola Itamarati Guaianases',
   description:
-    'Entre em contato com a Autoescola Itamarati. Endereço na R. Saturnino Pereira, 46 em Guaianases, telefone (11) 2554-2278 e atendimento ágil pelo WhatsApp.',
+    'Entre em contato com a Autoescola Itamarati. Endereço na Rua Joaquim Leite, 46 em Guaianases, telefone (11) 2557-8597 e atendimento ágil pelo WhatsApp.',
 };
 
 export const revalidate = 0;

@@ -6,7 +6,7 @@ import { Camera, ShieldCheck } from 'lucide-react';
 export const metadata = {
   title: 'Galeria de Conquistas & Estrutura | Autoescola Itamarati',
   description:
-    'Veja fotos reais dos nossos alunos habilitados, aulas práticas, instalações, simulador de direção e equipe da Autoescola Itamarati em Guaianases.',
+    'Veja fotos reais dos nossos alunos habilitados, aulas práticas, instalações e equipe da Autoescola Itamarati em Guaianases.',
 };
 
 export const revalidate = 0;

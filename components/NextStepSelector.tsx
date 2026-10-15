@@ -18,9 +18,9 @@ export default function NextStepSelector({ whatsappClean = '5511970539746' }: Ne
       icon: Car,
       tagline: 'O começo da sua independência ao volante',
       description:
-        'Aulas para carro (categoria B), moto (categoria A) ou ambas juntas (A/B). Conte com instrução acolhedora, paciência redobrada para quem está começando do zero e treinamento no simulador antes de ir para a rua.',
+        'Aulas para carro (categoria B), moto (categoria A) ou ambas juntas (A/B). Conte com instrução acolhedora, paciência redobrada para quem está começando do zero.',
       highlights: [
-        'Curso teórico CFC somente online e simulador de direção',
+        'Curso teórico CFC totalmente online',
         'Instrutores pacientes e metodologia focada em confiança',
         'Horários flexíveis de segunda a sábado',
         'Acompanhamento passo a passo até o dia da prova prática',

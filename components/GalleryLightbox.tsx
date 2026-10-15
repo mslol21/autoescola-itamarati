@@ -23,7 +23,7 @@ export default function GalleryLightbox({
     { key: 'todos', label: 'Todas as fotos' },
     { key: 'conquistas', label: 'Conquistas & Alunos' },
     { key: 'aulas', label: 'Aulas Práticas' },
-    { key: 'estrutura', label: 'Estrutura & Simulador' },
+    { key: 'estrutura', label: 'Estrutura' },
     { key: 'equipe', label: 'Nossa Equipe' },
     { key: 'eventos', label: 'Eventos & Treinamentos' },
   ];

@@ -278,7 +278,7 @@ export default function HomePage() {
               Passa aqui pra tomar um café e conhecer a gente.
             </h2>
             <p className="mt-6 text-lg text-brand-100">
-              Nossa unidade fica na esquina da R. Saturnino Pereira com a R. Joaquim Leite, na divisa de Guaianases com o Lajeado.
+              Nossa unidade fica na Rua Joaquim Leite, 46 (continuação da Saturnino Pereira), na divisa de Guaianases com o Lajeado.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/galeria" className="btn-yellow">

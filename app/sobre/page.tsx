@@ -39,7 +39,7 @@ export default function SobrePage() {
     {
       icon: Zap,
       title: 'Coragem',
-      description: 'Inovamos com tecnologia, simulador de direção e métodos que transformam o medo em segurança no trânsito.',
+      description: 'Inovamos com tecnologia e métodos que transformam o medo em segurança no trânsito.',
       color: 'text-amber-600 bg-amber-50',
     },
     {

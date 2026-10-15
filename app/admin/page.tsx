@@ -920,8 +920,8 @@ export default function AdminPage() {
                       shortDesc: '',
                       fullDesc: '',
                       forWhom: '',
-                      requirements: ['RG ou documento com foto', 'CPF regular', 'Comprovante de residência'],
-                      stages: ['Abertura de processo', 'Exame médico', 'Curso teórico CFC somente online', 'Aulas práticas', 'Exame final'],
+                      requirements: ['RG ou documento com foto', 'CPF regular'],
+                      stages: ['Abertura de processo', 'Exame médico', 'Curso teórico CFC totalmente online', 'Aulas práticas', 'Exame final'],
                       faqs: [],
                       highlight: false,
                       active: true,
@@ -1921,7 +1921,7 @@ export default function AdminPage() {
                   >
                     <option value="conquistas">Conquistas & Alunos</option>
                     <option value="aulas">Aulas Práticas</option>
-                    <option value="estrutura">Estrutura & Simulador</option>
+                    <option value="estrutura">Estrutura</option>
                     <option value="equipe">Nossa Equipe</option>
                     <option value="eventos">Eventos & Treinamentos</option>
                   </select>

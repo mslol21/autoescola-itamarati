@@ -11,7 +11,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  phone = '(11) 2554-2278',
+  phone = '(11) 2557-8597',
   whatsappClean = '5511970539746',
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);

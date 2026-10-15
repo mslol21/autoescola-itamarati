@@ -3,7 +3,7 @@
     "badge": "Autoescola Itamarati · Guaianases, São Paulo",
     "title": "Seu próximo capítulo",
     "titleHighlight": "começa ao volante.",
-    "subtitle": "Aulas práticas e curso teórico CFC somente online, orientação acolhedora e uma equipe experiente que caminha com você até a conquista da sua independência e habilitação.",
+    "subtitle": "Aulas teóricas do CFC totalmente online, aulas práticas, orientação acolhedora e uma equipe experiente que caminha com você até a conquista da sua independência e habilitação.",
     "ctaPrimaryText": "Quero começar agora",
     "ctaPrimaryHref": "#passo-a-passo",
     "ctaSecondaryText": "Conhecer a Itamarati",
@@ -14,13 +14,13 @@
   "settings": {
     "name": "Autoescola Itamarati",
     "cnpj": "15.866.516/0001-90",
-    "address": "R. Saturnino Pereira, 46 (esq. com R. Joaquim Leite)",
+    "address": "Rua Joaquim Leite, 46 (continuação da Saturnino Pereira)",
     "district": "Guaianases / Lajeado",
     "city": "São Paulo",
     "state": "SP",
-    "cep": "08411-009",
-    "phone": "(11) 2554-2278",
-    "phoneClean": "1125542278",
+    "cep": "08411-000",
+    "phone": "(11) 2557-8597",
+    "phoneClean": "1125578597",
     "whatsapp": "(11) 97053-9746",
     "whatsappClean": "5511970539746",
     "email": "autoescolaitamarati@gmail.com",
@@ -29,8 +29,8 @@
     "openingHoursSunday": "Domingo e feriados: Fechado",
     "instagramUrl": "https://www.instagram.com/autoescolaitamarati/",
     "facebookUrl": "https://www.facebook.com/autoescolaitamarati/",
-    "googleMapsUrl": "https://www.google.com/maps/dir//R.+Saturnino+Pereira,+46+-+Guaianases+-+São+Paulo,+SP/",
-    "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.1736451088164!2d-46.411496!3d-23.5445992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce644d75984a35%3A0x55208ba2c74c0fc2!2sR.%20Saturnino%20Pereira%2C%2046%20-%20Guaianases%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2008411-009!5e0!3m2!1sen!2sbr!4v1700826934514!5m2!1sen!2sbr",
+    "googleMapsUrl": "https://www.google.com/maps/dir/?api=1&destination=Rua+Joaquim+Leite%2C+46%2C+Guaianases%2C+S%C3%A3o+Paulo+-+SP%2C+08411-000",
+    "googleMapsEmbedUrl": "https://www.google.com/maps?q=Rua+Joaquim+Leite%2C+46%2C+Guaianases%2C+S%C3%A3o+Paulo+-+SP%2C+08411-000&output=embed",
     "stats": {
       "years": 59,
       "graduatedStudents": "+80.000",
@@ -46,19 +46,17 @@
       "category": "primeira-habilitacao",
       "categoryLabel": "Primeira CNH",
       "shortDesc": "A conquista da sua liberdade. Aulas para motos (A), carros (B) ou ambas em conjunto com instrutores pacientes e metodologia testada.",
-      "fullDesc": "O início da sua jornada no trânsito deve ser leve, seguro e bem orientado. Na Itamarati, você conta com apoio completo desde a matrícula, pré-cadastro, agendamento de exames médicos, simulador de direção até o exame prático final.",
+      "fullDesc": "O início da sua jornada no trânsito deve ser leve, seguro e bem orientado. Na Itamarati, você conta com apoio completo desde a matrícula, pré-cadastro, agendamento de exames médicos.",
       "forWhom": "Para quem completou 18 anos e deseja conquistar a independência de conduzir seu próprio veículo com tranquilidade.",
       "requirements": [
         "Ter no mínimo 18 anos completos",
         "Documento de identidade oficial com foto (RG ou equivalente)",
-        "CPF em situação regular",
-        "Comprovante recente de residência em seu nome ou de parente de 1º grau"
+        "CPF em situação regular"
       ],
       "stages": [
         "Abertura de processo no DETRAN e exames médico e psicotécnico",
-        "Curso teórico CFC somente online (EAD), com simulados interativos",
+        "Curso teórico CFC totalmente online (EAD), com simulados interativos",
         "Aprovação na prova teórica oficial",
-        "Treinamento no simulador de direção (para categoria B)",
         "Aulas práticas em veículos modernos com instrutores credenciados",
         "Exame prático de direção e emissão da Permissão Para Dirigir (PPD)"
       ],
@@ -118,7 +116,6 @@
       "forWhom": "Condutores cuja CNH está próxima da data de vencimento ou já expirou.",
       "requirements": [
         "CNH atual (ou documento com foto se perdida)",
-        "Comprovante de residência atualizado",
         "Exame médico/psicotécnico (e toxicológico para categorias C, D ou E)"
       ],
       "stages": [
@@ -177,13 +174,12 @@
       "forWhom": "Pessoas de todas as idades, incluindo a terceira idade, que desejam tirar a primeira habilitação ou retomar a direção com segurança.",
       "requirements": [
         "Aptidão no exame médico e psicológico credenciado",
-        "Documento com foto e comprovante de residência",
+        "Documento com foto",
         "Vontade de conquistar a sua independência!"
       ],
       "stages": [
         "Conversa inicial acolhedora para entender seus objetivos e ritmo",
         "Acompanhamento nos exames de saúde",
-        "Aulas no simulador para ambientação segura",
         "Aulas práticas respeitando o tempo de aprendizado de cada pessoa"
       ],
       "faqs": [
@@ -423,8 +419,8 @@
       "category": "estrutura",
       "categoryLabel": "Estrutura",
       "imageUrl": "/images/hero-facade.png",
-      "categoryBadge": "Rua Saturnino Pereira, 46",
-      "caption": "A unidade da Itamarati na esquina da R. Saturnino Pereira com a R. Joaquim Leite.",
+      "categoryBadge": "Rua Joaquim Leite, 46",
+      "caption": "A unidade da Itamarati na Rua Joaquim Leite, 46 (continuação da Saturnino Pereira).",
       "isFeaturedHome": true
     },
     {
@@ -548,7 +544,7 @@
       "slug": "autoescola-itamarati-em-guaianases-tradicao-e-metodo",
       "title": "Tradição e Modernidade: Por que a Itamarati é Referência em Guaianases",
       "summary": "Com 59 anos de história e mais de 80.000 condutores habilitados, o Centro de Formação de Condutores Itamarati une método acolhedor e infraestrutura completa.",
-      "content": "Localizada na Rua Saturnino Pereira, 46, na divisa de Guaianases com o Lajeado, a Autoescola Itamarati é um ponto histórico de referência para milhares de famílias da Zona Leste paulistana.\n\n### 59 anos formando condutores com respeito\nA longevidade da empresa é resultado direto do compromisso com a qualidade de ensino e o respeito a cada aluno:\n- **Atendimento sem burocracia:** orientações claras sobre documentação, taxas e agendamentos no DETRAN;\n- **Simulador de direção:** tecnologia para criar memória muscular de pedais e marcha antes de ir para a via pública;\n- **Frota própria moderna:** carros com ar-condicionado, direção assistida e manutenção preventiva rigorosa;\n- **Respeito a todas as idades:** atendimento dedicado tanto ao jovem de 18 anos quanto ao aluno que busca sua habilitação na terceira idade.\n\nVenha nos visitar e tomar um café na nossa recepção. Sua próxima conquista começa aqui!",
+      "content": "Localizada na Rua Joaquim Leite, 46, na divisa de Guaianases com o Lajeado, a Autoescola Itamarati é um ponto histórico de referência para milhares de famílias da Zona Leste paulistana.\n\n### 59 anos formando condutores com respeito\nA longevidade da empresa é resultado direto do compromisso com a qualidade de ensino e o respeito a cada aluno:\n- **Atendimento sem burocracia:** orientações claras sobre documentação, taxas e agendamentos no DETRAN;\n- **Frota própria moderna:** carros com ar-condicionado, direção assistida e manutenção preventiva rigorosa;\n- **Respeito a todas as idades:** atendimento dedicado tanto ao jovem de 18 anos quanto ao aluno que busca sua habilitação na terceira idade.\n\nVenha nos visitar e tomar um café na nossa recepção. Sua próxima conquista começa aqui!",
       "coverImage": "/images/insta/insta-02.jpg",
       "category": "Institucional & Região",
       "author": "Equipe Itamarati",
@@ -728,7 +724,7 @@
       "id": "faq-1",
       "topic": "Primeira Habilitação",
       "question": "Quais são os documentos necessários para dar início à primeira CNH?",
-      "answer": "Para se matricular, você precisa de um documento de identificação original com foto (RG, passaporte ou carteira de trabalho), CPF e um comprovante recente de residência (com emissão dos últimos 3 meses) em seu nome ou de pais/cônjuge.",
+      "answer": "Para se matricular, você precisa de um documento de identificação original com foto (RG, passaporte ou carteira de trabalho) e CPF.",
       "order": 1,
       "active": true
     },
@@ -738,14 +734,6 @@
       "question": "Qual é o prazo médio do processo no DETRAN?",
       "answer": "O processo formal tem validade de até 12 meses a contar da data de abertura no órgão de trânsito. A conclusão das etapas costuma depender da sua disponibilidade de agenda para exames e aulas práticas.",
       "order": 2,
-      "active": true
-    },
-    {
-      "id": "faq-3",
-      "topic": "Aulas & Simulador",
-      "question": "Como funciona a etapa de simulador de direção?",
-      "answer": "O simulador permite vivenciar situações cotidianas de trânsito, como arrancadas em subida, trocas de marcha e frenagens seguras, em ambiente virtual e controlado antes de ir para as ruas com o instrutor.",
-      "order": 3,
       "active": true
     },
     {
@@ -776,7 +764,7 @@
       "id": "faq-7",
       "topic": "Localização & Horários",
       "question": "Onde a Autoescola Itamarati está localizada?",
-      "answer": "Estamos em Guaianases / Lajeado, na Rua Saturnino Pereira, nº 46 (esquina com a Rua Joaquim Leite), em São Paulo - SP. Atendemos de segunda a sexta das 08h às 19h e aos sábados das 08h às 13h.",
+      "answer": "Estamos em Guaianases / Lajeado, na Rua Joaquim Leite, nº 46 (continuação da Saturnino Pereira), em São Paulo - SP. Atendemos de segunda a sexta das 08h às 19h e aos sábados das 08h às 13h.",
       "order": 7,
       "active": true
     }

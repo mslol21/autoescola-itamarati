@@ -12,7 +12,7 @@ db.hero.heroImageUrl = '/images/hero-facade.png';
 
 // ---------- GALLERY: only real material ----------
 db.gallery = [
-  { id: 'gal-facade', title: 'Nossa fachada em Guaianases', category: 'estrutura', categoryLabel: 'Estrutura', imageUrl: '/images/hero-facade.png', studentName: '', categoryBadge: 'Rua Saturnino Pereira, 46', caption: 'A unidade da Itamarati na esquina da R. Saturnino Pereira com a R. Joaquim Leite.', isFeaturedHome: true },
+  { id: 'gal-facade', title: 'Nossa fachada em Guaianases', category: 'estrutura', categoryLabel: 'Estrutura', imageUrl: '/images/hero-facade.png', studentName: '', categoryBadge: 'Rua Joaquim Leite, 46', caption: 'A unidade da Itamarati na Rua Joaquim Leite, 46 (continuação da Saturnino Pereira).', isFeaturedHome: true },
   { id: 'gal-insta-02', title: 'Tire sua habilitação na Itamarati', category: 'conquistas', categoryLabel: 'Conquistas', imageUrl: I(2), categoryBadge: 'Instagram', caption: 'Aqui você alcança seu objetivo e realiza seu sonho.', isFeaturedHome: true },
   { id: 'gal-insta-04', title: 'Sua CNH, sua liberdade', category: 'aulas', categoryLabel: 'Aulas', imageUrl: I(4), categoryBadge: 'Carro e moto', caption: 'CNH de carro e moto com quem tem tradição desde 1967.', isFeaturedHome: true },
   { id: 'gal-insta-07', title: 'Curso de Motofrete', category: 'aulas', categoryLabel: 'Aulas', imageUrl: I(7), categoryBadge: 'Curso', caption: 'Pilotagem segura, rotas, logística e legislação para quem trabalha com entregas.', isFeaturedHome: true },

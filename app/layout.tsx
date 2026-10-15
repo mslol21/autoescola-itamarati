@@ -19,7 +19,6 @@ export const metadata: Metadata = {
     'Curso TCP Senatran',
     'Curso MOPP Senatran',
     'Autoescola Lajeado',
-    'Simulador de Direção',
   ],
   authors: [{ name: 'Autoescola Itamarati' }],
   metadataBase: new URL('https://autoescolaitamarati.com.br'),
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
     url: 'https://autoescolaitamarati.com.br',
     title: 'Autoescola Itamarati | Sua Próxima Conquista Começa Aqui',
     description:
-      'Aulas práticas e curso teórico CFC somente online, com didática acolhedora, frota moderna e cursos Senatran em Guaianases, São Paulo.',
+      'Aulas teóricas do CFC totalmente online, aulas práticas, com didática acolhedora, frota moderna e cursos Senatran em Guaianases, São Paulo.',
     siteName: 'Autoescola Itamarati',
     images: [
       {
