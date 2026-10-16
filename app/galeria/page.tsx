@@ -1,4 +1,5 @@
 import React from 'react';
+import type { GalleryItem } from '@/lib/types';
 import { db } from '@/lib/db';
 import GalleryLightbox from '@/components/GalleryLightbox';
 import { Camera, ShieldCheck } from 'lucide-react';
@@ -11,9 +12,12 @@ export const metadata = {
 
 export const revalidate = 0;
 
-export default function GaleriaPage() {
+export default async function GaleriaPage() {
   // Only photos with authorized image use are shown in the public gallery!
-  const items = db.getGalleryItems({ onlyAuthorized: true });
+  let items: GalleryItem[] = [];
+  let unavailable = false;
+  try { items = await db.getGalleryItems({ onlyAuthorized: true }); }
+  catch { unavailable = true; console.error('Public gallery temporarily unavailable'); }
 
   return (
     <div className="py-12 sm:py-16 space-y-12">
@@ -30,7 +34,7 @@ export default function GaleriaPage() {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <GalleryLightbox items={items} />
+        {unavailable ? <p role="status" className="text-center text-slate-600">Não foi possível carregar as fotos neste momento. Tente novamente em instantes.</p> : <GalleryLightbox items={items} />}
       </section>
 
       {/* Privacy note */}

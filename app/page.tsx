@@ -44,11 +44,14 @@ function SectionHead({
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
   const hero = db.getHeroConfig();
   const settings = db.getSettings();
-  const featuredGallery = db.getGalleryItems({ onlyAuthorized: true, onlyFeaturedHome: true });
-  const allGallery = db.getGalleryItems({ onlyAuthorized: true });
+  const allGallery = await db.getGalleryItems({ onlyAuthorized: true }).catch(() => {
+    console.error('Public gallery temporarily unavailable');
+    return [];
+  });
+  const featuredGallery = allGallery.filter(item => item.isFeaturedHome);
   const insideGallery = allGallery.filter((i) => ['estrutura', 'equipe', 'aulas'].includes(i.category)).slice(0, 3);
   const featuredNews = db.getNewsArticles({ onlyPublished: true, onlyFeaturedHome: true });
   const testimonials = db.getTestimonials(true);

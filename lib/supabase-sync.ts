@@ -4,7 +4,6 @@ import {
   SiteSettings,
   Service,
   Course,
-  GalleryItem,
   NewsArticle,
   Testimonial,
   FaqItem,
@@ -95,35 +94,6 @@ export async function deleteCourseFromSupabase(id: string) {
     await supabase.from('courses').delete().eq('id', id);
   } catch (err) {
     console.error('Supabase deleteCourse error:', err);
-  }
-}
-
-export async function syncGalleryToSupabase(item: GalleryItem) {
-  try {
-    await supabase.from('gallery').upsert({
-      id: item.id,
-      title: item.title,
-      category: item.category,
-      category_label: item.categoryLabel,
-      image_url: item.imageUrl,
-      student_name: item.studentName || '',
-      category_badge: item.categoryBadge || '',
-      caption: item.caption || '',
-      is_featured_home: item.isFeaturedHome ?? false,
-      autorizado_uso_imagem: item.autorizadoUsoImagem ?? true,
-      order: item.order || 0,
-      created_at: item.createdAt || '',
-    });
-  } catch (err) {
-    console.error('Supabase syncGallery error:', err);
-  }
-}
-
-export async function deleteGalleryFromSupabase(id: string) {
-  try {
-    await supabase.from('gallery').delete().eq('id', id);
-  } catch (err) {
-    console.error('Supabase deleteGallery error:', err);
   }
 }
 
