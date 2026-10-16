@@ -62,18 +62,18 @@ export default function Navbar({
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-[72px] gap-4">
+        <div className="flex items-center justify-between h-20 sm:h-24 gap-3">
           <Link href="/" className="shrink-0 rounded-md" aria-label="Autoescola Itamarati — página inicial">
             <img
               src="/images/logo-itamarati-2026.jpg"
               alt="Autoescola Itamarati — desde 1967"
               width={1536}
               height={1024}
-              className="h-12 w-[156px] sm:h-[55px] sm:w-[180px] rounded-md bg-black object-cover object-center"
+              className="h-[60px] w-[196px] sm:h-[72px] sm:w-[236px] rounded-md bg-black object-cover object-center"
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-0.5" aria-label="Navegação principal">
+          <nav className="hidden xl:flex items-center gap-0.5" aria-label="Navegação principal">
             {navLinks.map((link) => {
               const isActive = link.href !== '/' && !link.href.includes('#') && pathname.startsWith(link.href);
               return (
@@ -81,7 +81,7 @@ export default function Navbar({
                   key={link.label}
                   href={link.href}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`relative px-3 py-2 text-[15px] font-medium rounded-md transition-colors ${
+                  className={`relative px-2 py-2 text-sm font-medium rounded-md transition-colors ${
                     isActive ? 'text-ink' : 'text-slate-600 hover:text-ink'
                   }`}
                 >
@@ -95,7 +95,7 @@ export default function Navbar({
           <div className="flex items-center gap-2">
             <a
               href={`tel:${phoneClean}`}
-              className="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold text-slate-700 hover:text-ink"
+              className="hidden 2xl:inline-flex items-center gap-1.5 px-2 py-2 text-sm font-semibold text-slate-700 hover:text-ink"
             >
               <Phone className="w-4 h-4" aria-hidden="true" />
               {phone}
@@ -115,7 +115,7 @@ export default function Navbar({
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-ink text-ink hover:bg-accent-400 transition-colors"
+              className="xl:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border-2 border-ink text-ink hover:bg-accent-400 transition-colors"
               aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -127,7 +127,7 @@ export default function Navbar({
       </div>
 
       {isOpen && (
-        <div id="mobile-menu" className="lg:hidden fixed inset-x-0 top-16 sm:top-[72px] bottom-0 bg-ink text-white overflow-y-auto">
+        <div id="mobile-menu" className="xl:hidden fixed inset-x-0 top-20 sm:top-24 bottom-0 bg-ink text-white overflow-y-auto">
           <nav className="px-5 py-6" aria-label="Navegação principal (celular)">
             <ul className="divide-y divide-white/10">
               {navLinks.map((link, i) => (
