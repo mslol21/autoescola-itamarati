@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import {
   Lock,
@@ -79,6 +79,8 @@ export default function AdminPage() {
   // Feedback states
   const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
   const [isSaving, setIsSaving] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const uploadInFlight = useRef(false);
 
   // Modal / Editing states
   const [editingService, setEditingService] = useState<Service | null>(null);
@@ -149,6 +151,7 @@ export default function AdminPage() {
       if (srvRes.ok) setServices(await srvRes.json());
       if (cRes.ok) setCourses(await cRes.json());
       if (gRes.ok) setGallery(await gRes.json());
+      else showToast('error', 'Não foi possível carregar a galeria do banco de dados. Tente novamente.');
       if (nRes.ok) setNews(await nRes.json());
       if (tRes.ok) setTestimonials(await tRes.json());
       if (fRes.ok) setFaqs(await fRes.json());
@@ -199,6 +202,13 @@ export default function AdminPage() {
 
   // Image upload helper
   const handleFileUpload = async (file: File): Promise<string | null> => {
+    if (uploadInFlight.current) return null;
+    if (file.size > 4 * 1024 * 1024) {
+      showToast('error', 'A imagem deve ter no máximo 4 MB.');
+      return null;
+    }
+    uploadInFlight.current = true;
+    setIsUploading(true);
     const formData = new FormData();
     formData.append('file', file);
 
@@ -207,14 +217,17 @@ export default function AdminPage() {
         method: 'POST',
         body: formData,
       });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || 'Falha no upload.');
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.url) {
+        throw new Error(res.status === 413 ? 'A imagem excede o limite de envio. Use um arquivo de até 4 MB.' : data.error || 'Falha no upload.');
       }
       return data.url;
     } catch (err: any) {
       showToast('error', err.message || 'Erro ao enviar imagem.');
       return null;
+    } finally {
+      uploadInFlight.current = false;
+      setIsUploading(false);
     }
   };
 
@@ -294,6 +307,11 @@ export default function AdminPage() {
   };
 
   const saveGalleryItem = async (item: GalleryItem) => {
+    if (uploadInFlight.current || isSaving) return;
+    if (!item.title.trim() || !item.imageUrl) {
+      showToast('error', 'Preencha o título e envie a foto antes de salvar.');
+      return;
+    }
     setIsSaving(true);
     try {
       const res = await fetch('/api/admin/gallery', {
@@ -301,12 +319,13 @@ export default function AdminPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(item),
       });
-      if (!res.ok) throw new Error();
-      showToast('success', 'Item da galeria salvo!');
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || !result.success) throw new Error(result.error || 'Erro ao salvar foto da galeria.');
+      showToast('success', result.item.autorizadoUsoImagem ? 'Foto salva e disponível na galeria do site!' : 'Foto salva. Ficará oculta até a autorização de uso ser registrada.');
       setEditingGallery(null);
       loadAllData();
-    } catch {
-      showToast('error', 'Erro ao salvar foto da galeria.');
+    } catch (err: any) {
+      showToast('error', err.message || 'Erro ao salvar foto da galeria.');
     } finally {
       setIsSaving(false);
     }
@@ -743,7 +762,7 @@ export default function AdminPage() {
                         categoryBadge: 'Categoria B',
                         caption: '',
                         isFeaturedHome: true,
-                        autorizadoUsoImagem: true,
+                        autorizadoUsoImagem: false,
                         order: gallery.length + 1,
                         createdAt: new Date().toISOString().split('T')[0],
                       });
@@ -1097,7 +1116,7 @@ export default function AdminPage() {
                       categoryBadge: 'Categoria B',
                       caption: '',
                       isFeaturedHome: true,
-                      autorizadoUsoImagem: true,
+                      autorizadoUsoImagem: false,
                       order: gallery.length + 1,
                       createdAt: new Date().toISOString().split('T')[0],
                     })
@@ -1889,7 +1908,7 @@ export default function AdminPage() {
               <h3 className="text-lg font-bold text-slate-900">
                 {editingGallery.id ? 'Editar Foto da Galeria' : 'Adicionar Foto'}
               </h3>
-              <button onClick={() => setEditingGallery(null)} className="p-1 rounded-lg text-slate-400 hover:text-slate-600">
+              <button disabled={isUploading || isSaving} onClick={() => setEditingGallery(null)} className="p-1 rounded-lg text-slate-400 hover:text-slate-600">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -1972,20 +1991,22 @@ export default function AdminPage() {
                     <input
                       type="text"
                       value={editingGallery.imageUrl}
+                      disabled={isUploading || isSaving}
                       onChange={(e) => setEditingGallery({ ...editingGallery, imageUrl: e.target.value })}
                       className="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs"
                     />
                     <label className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 cursor-pointer">
                       <Upload className="w-3.5 h-3.5" />
-                      <span>Substituir Foto / Upload</span>
+                      <span>{isUploading ? 'Enviando foto...' : 'Substituir Foto / Upload'}</span>
                       <input
                         type="file"
-                        accept="image/*"
+                        accept="image/jpeg,image/png,image/webp,image/gif"
+                        disabled={isUploading || isSaving}
                         className="hidden"
                         onChange={async (e) => {
                           if (e.target.files?.[0]) {
                             const url = await handleFileUpload(e.target.files[0]);
-                            if (url) setEditingGallery({ ...editingGallery, imageUrl: url });
+                            if (url) setEditingGallery(current => current && current.id === editingGallery.id ? { ...current, imageUrl: url } : current);
                           }
                         }}
                       />
@@ -2033,6 +2054,7 @@ export default function AdminPage() {
             <div className="pt-4 border-t border-slate-200 flex justify-end gap-3">
               <button
                 type="button"
+                disabled={isUploading || isSaving}
                 onClick={() => setEditingGallery(null)}
                 className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-semibold"
               >
@@ -2040,10 +2062,11 @@ export default function AdminPage() {
               </button>
               <button
                 type="button"
+                disabled={isUploading || isSaving || !editingGallery.imageUrl}
                 onClick={() => saveGalleryItem(editingGallery)}
                 className="px-5 py-2 rounded-xl bg-accent-500 text-ink font-bold hover:bg-accent-400"
               >
-                Salvar Foto
+                {isUploading ? 'Aguarde o envio...' : isSaving ? 'Salvando...' : 'Salvar Foto'}
               </button>
             </div>
           </div>

@@ -2,7 +2,11 @@ import { cookies } from 'next/headers';
 import crypto from 'crypto';
 
 const AUTH_COOKIE_NAME = 'itam_admin_session';
-const SECRET_KEY = process.env.ADMIN_SESSION_SECRET || 'itamarati-super-secure-secret-key-2026';
+const SECRET_KEY = process.env.ADMIN_SESSION_SECRET;
+function sessionSecret(): string {
+  if (!SECRET_KEY || SECRET_KEY.length < 32) throw new Error('ADMIN_SESSION_SECRET_NOT_CONFIGURED');
+  return SECRET_KEY;
+}
 
 export interface SessionData {
   username: string;
@@ -13,7 +17,7 @@ export interface SessionData {
 export function generateToken(data: SessionData): string {
   const payload = JSON.stringify(data);
   const signature = crypto
-    .createHmac('sha256', SECRET_KEY)
+    .createHmac('sha256', sessionSecret())
     .update(payload)
     .digest('hex');
   return Buffer.from(`${payload}.${signature}`).toString('base64');
@@ -26,18 +30,18 @@ export function verifyToken(token: string): SessionData | null {
     if (!payload || !signature) return null;
 
     const expectedSig = crypto
-      .createHmac('sha256', SECRET_KEY)
+      .createHmac('sha256', sessionSecret())
       .update(payload)
       .digest('hex');
 
-    if (signature !== expectedSig) {
+    if (signature.length !== expectedSig.length || !crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSig))) {
       return null;
     }
 
     const data = JSON.parse(payload) as SessionData;
     // Session valid for 7 days
     const maxAge = 7 * 24 * 60 * 60 * 1000;
-    if (Date.now() - data.createdAt > maxAge) {
+    if (data.role !== 'admin' || !Number.isFinite(data.createdAt) || data.createdAt > Date.now() || Date.now() - data.createdAt > maxAge) {
       return null;
     }
 

@@ -1,3 +1,4 @@
+import { getGalleryItems, saveGalleryItem, deleteGalleryItem } from './gallery-storage';
 import fs from 'fs';
 import path from 'path';
 import {
@@ -835,8 +836,6 @@ import {
   deleteServiceFromSupabase,
   syncCourseToSupabase,
   deleteCourseFromSupabase,
-  syncGalleryToSupabase,
-  deleteGalleryFromSupabase,
   syncNewsToSupabase,
   deleteNewsFromSupabase,
   syncTestimonialToSupabase,
@@ -925,43 +924,10 @@ export const db = {
     return saveDatabase(current);
   },
 
-  // GALLERY
-  // NOTE: Strict privacy rule: if onlyAuthorized is true (public site), only items with autorizadoUsoImagem === true are returned!
-  getGalleryItems: (options?: {
-    onlyAuthorized?: boolean;
-    onlyFeaturedHome?: boolean;
-    category?: string;
-  }): GalleryItem[] => {
-    let items = loadDatabase().gallery;
-    if (options?.onlyAuthorized) {
-      items = items.filter((item) => item.autorizadoUsoImagem === true);
-    }
-    if (options?.onlyFeaturedHome) {
-      items = items.filter((item) => item.isFeaturedHome);
-    }
-    if (options?.category && options.category !== 'todos') {
-      items = items.filter((item) => item.category === options.category);
-    }
-    return items.sort((a, b) => a.order - b.order);
-  },
-  saveGalleryItem: (item: GalleryItem): GalleryItem => {
-    const current = loadDatabase();
-    const index = current.gallery.findIndex((g) => g.id === item.id);
-    if (index >= 0) {
-      current.gallery[index] = item;
-    } else {
-      current.gallery.push(item);
-    }
-    saveDatabase(current);
-    syncGalleryToSupabase(item);
-    return item;
-  },
-  deleteGalleryItem: (id: string): boolean => {
-    const current = loadDatabase();
-    current.gallery = current.gallery.filter((g) => g.id !== id);
-    deleteGalleryFromSupabase(id);
-    return saveDatabase(current);
-  },
+  // Gallery reads and writes always use the persistent database.
+  getGalleryItems,
+  saveGalleryItem,
+  deleteGalleryItem,
 
   // NEWS CMS
   getNewsArticles: (options?: {
