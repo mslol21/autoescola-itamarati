@@ -1,4 +1,5 @@
-import { supabase } from './supabase';
+import 'server-only';
+import { getMediaClient } from './gallery-storage';
 import {
   HeroConfig,
   SiteSettings,
@@ -11,7 +12,7 @@ import {
 
 export async function syncHeroToSupabase(hero: HeroConfig) {
   try {
-    await supabase.from('hero_config').upsert({
+    await getMediaClient().from('hero_config').upsert({
       id: 'main_hero',
       data: hero,
       updated_at: new Date().toISOString(),
@@ -23,7 +24,7 @@ export async function syncHeroToSupabase(hero: HeroConfig) {
 
 export async function syncSettingsToSupabase(settings: SiteSettings) {
   try {
-    await supabase.from('site_settings').upsert({
+    await getMediaClient().from('site_settings').upsert({
       id: 'main_settings',
       data: settings,
       updated_at: new Date().toISOString(),
@@ -35,7 +36,7 @@ export async function syncSettingsToSupabase(settings: SiteSettings) {
 
 export async function syncServiceToSupabase(service: Service) {
   try {
-    await supabase.from('services').upsert({
+    await getMediaClient().from('services').upsert({
       id: service.id,
       slug: service.slug,
       title: service.title,
@@ -58,7 +59,7 @@ export async function syncServiceToSupabase(service: Service) {
 
 export async function deleteServiceFromSupabase(id: string) {
   try {
-    await supabase.from('services').delete().eq('id', id);
+    await getMediaClient().from('services').delete().eq('id', id);
   } catch (err) {
     console.error('Supabase deleteService error:', err);
   }
@@ -66,7 +67,7 @@ export async function deleteServiceFromSupabase(id: string) {
 
 export async function syncCourseToSupabase(course: Course) {
   try {
-    await supabase.from('courses').upsert({
+    await getMediaClient().from('courses').upsert({
       id: course.id,
       slug: course.slug,
       title: course.title,
@@ -91,7 +92,7 @@ export async function syncCourseToSupabase(course: Course) {
 
 export async function deleteCourseFromSupabase(id: string) {
   try {
-    await supabase.from('courses').delete().eq('id', id);
+    await getMediaClient().from('courses').delete().eq('id', id);
   } catch (err) {
     console.error('Supabase deleteCourse error:', err);
   }
@@ -99,7 +100,7 @@ export async function deleteCourseFromSupabase(id: string) {
 
 export async function syncNewsToSupabase(article: NewsArticle) {
   try {
-    await supabase.from('news').upsert({
+    await getMediaClient().from('news').upsert({
       id: article.id,
       slug: article.slug,
       title: article.title,
@@ -123,7 +124,7 @@ export async function syncNewsToSupabase(article: NewsArticle) {
 
 export async function deleteNewsFromSupabase(id: string) {
   try {
-    await supabase.from('news').delete().eq('id', id);
+    await getMediaClient().from('news').delete().eq('id', id);
   } catch (err) {
     console.error('Supabase deleteNews error:', err);
   }
@@ -131,7 +132,7 @@ export async function deleteNewsFromSupabase(id: string) {
 
 export async function syncTestimonialToSupabase(testimonial: Testimonial) {
   try {
-    await supabase.from('testimonials').upsert({
+    await getMediaClient().from('testimonials').upsert({
       id: testimonial.id,
       author: testimonial.author,
       category: testimonial.category,
@@ -147,7 +148,7 @@ export async function syncTestimonialToSupabase(testimonial: Testimonial) {
 
 export async function deleteTestimonialFromSupabase(id: string) {
   try {
-    await supabase.from('testimonials').delete().eq('id', id);
+    await getMediaClient().from('testimonials').delete().eq('id', id);
   } catch (err) {
     console.error('Supabase deleteTestimonial error:', err);
   }
@@ -155,7 +156,7 @@ export async function deleteTestimonialFromSupabase(id: string) {
 
 export async function syncFaqToSupabase(faq: FaqItem) {
   try {
-    await supabase.from('faqs').upsert({
+    await getMediaClient().from('faqs').upsert({
       id: faq.id,
       topic: faq.topic,
       question: faq.question,
@@ -170,7 +171,7 @@ export async function syncFaqToSupabase(faq: FaqItem) {
 
 export async function deleteFaqFromSupabase(id: string) {
   try {
-    await supabase.from('faqs').delete().eq('id', id);
+    await getMediaClient().from('faqs').delete().eq('id', id);
   } catch (err) {
     console.error('Supabase deleteFaq error:', err);
   }
@@ -178,7 +179,7 @@ export async function deleteFaqFromSupabase(id: string) {
 
 export async function syncAdminPasswordToSupabase(passwordHash: string) {
   try {
-    await supabase.from('admin_users').upsert({
+    await getMediaClient().from('admin_users').upsert({
       id: 'primary_admin',
       username: 'admin',
       password_hash: passwordHash,
@@ -197,7 +198,7 @@ export async function saveLeadToSupabase(lead: {
   message?: string;
 }) {
   try {
-    await supabase.from('contact_leads').insert({
+    await getMediaClient().from('contact_leads').insert({
       id: `lead-${Date.now()}`,
       name: lead.name,
       phone: lead.phone || '',
